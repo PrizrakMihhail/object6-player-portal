@@ -7,7 +7,9 @@
   <title>Об Объекте — Объект №6</title>
   <link rel="stylesheet" href="shared/shard.css">
   <link rel="stylesheet" href="portal.css">
+  <link rel="stylesheet" href="object.css">
   <script type="module" src="shared/network-signal.js"></script>
+  <script type="module" src="object-tabs.js"></script>
 </head>
 <body>
   <header class="portal-header">
@@ -21,30 +23,51 @@
     <a class="guide-back" href="index.html#guide">Путеводитель</a>
     <header class="hero-row guide-hero">
       <h1>Об Объекте</h1>
-      <p class="lead">Фрисити вырос на руинах старого исследовательского комплекса. Обжитая часть стала городом, а за её пределами лежит Зона.</p>
     </header>
-    <div class="guide-panels">
-      <section class="portal-panel content-panel">
-        <h2>Фрисити</h2>
-        <p>В баре встречаются жители и приезжие, медблок принимает пациентов, местная пресса следит за делами Узла, а в казино играют на ставки.</p>
-      </section>
-      <section class="portal-panel content-panel">
-        <h2>Зона</h2>
-        <p>В Зоне остались лаборатории и сооружения прежнего комплекса. Отряды ходят туда за ресурсами, предметами и материалами для исследований.</p>
-      </section>
-      <section class="portal-panel content-panel">
-        <h2>Опасности</h2>
-        <p>На вылазках можно встретить мутантов и других обитателей Зоны. Болезни и заражения становятся частью игры и поводом обратиться в медблок.</p>
-      </section>
-      <section class="portal-panel content-panel">
-        <h2>Полезности</h2>
-        <p>В игре встречаются химические вещества, оружие, снаряжение, исследовательские материалы и другие находки. Их применяют в заданиях, исследованиях и обмене.</p>
-      </section>
-      <section class="portal-panel content-panel">
-        <h2>Фракции на игру</h2>
-        <p>Список фракций предстоящей игры будет добавлен позже.</p>
-      </section>
+    <div class="object-tabs" role="tablist" aria-label="Разделы об Объекте" hidden>
+      <button type="button" role="tab" id="tab-freecity" aria-controls="freecity" aria-selected="true">Фрисити</button>
+      <button type="button" role="tab" id="tab-zone" aria-controls="zone" aria-selected="false" tabindex="-1">Запретная Зона</button>
+      <button type="button" role="tab" id="tab-mechanics" aria-controls="mechanics" aria-selected="false" tabindex="-1">Механики</button>
     </div>
+    <section class="object-panel" id="freecity" role="tabpanel" aria-labelledby="tab-freecity" tabindex="0">
+      <header class="object-hub">
+        <h2>Узел Фрисити</h2>
+        <p>Выжившие основали Фрисити в обжитой части старого исследовательского комплекса. Здесь они поддерживают системы жизнеобеспечения, торгуют и готовят вылазки в Запретную Зону.</p>
+      </header>
+      <ul class="object-blocks object-schematic" aria-label="Схема структур Узла">
+        <li class="portal-panel content-panel"><h3>Плаза</h3><p>Общее пространство Узла, где встречаются жители и откуда можно попасть в бар и казино.</p></li>
+        <li class="portal-panel content-panel"><h3>Бар</h3><p>Место встречи жителей и гостей. Здесь договариваются, обмениваются слухами и ищут попутчиков.</p></li>
+        <li class="portal-panel content-panel"><h3>Казино</h3><p>Игровые столы и ставки. Сюда приходят испытать удачу и поговорить с завсегдатаями.</p></li>
+        <li class="portal-panel content-panel"><h3>Медблок</h3><p>Принимает пострадавших, лечит ранения и разбирается с болезнями, принесёнными из Зоны.</p></li>
+        <li class="portal-panel content-panel"><h3>Пресса</h3><p>Собирает новости, ведёт хронику Фрисити и публикует сообщения о делах Узла.</p></li>
+        <li class="portal-panel content-panel"><h3>Штаб РНД</h3><p>Координирует технические работы и помогает поддерживать системы жизнеобеспечения Узла.</p></li>
+        <li class="portal-panel content-panel"><h3>Оружейная</h3><p>Здесь можно обсудить с оружейником игровое снаряжение и его обслуживание.</p></li>
+      </ul>
+    </section>
+    <section class="object-panel" id="zone" role="tabpanel" aria-labelledby="tab-zone" tabindex="0" hidden>
+      <header class="object-hub zone-hub">
+        <h2>Запретная Зона</h2>
+        <p>За обжитой частью Объекта остались лаборатории и другие сооружения. Отряды исследуют их в поисках ресурсов, находок и сведений о прошлом комплекса.</p>
+      </header>
+      <ul class="object-blocks object-schematic" aria-label="Что можно встретить в Запретной Зоне">
+        <li class="portal-panel content-panel"><h3>Лаборатории</h3><p>Помещения старого комплекса, в которых сохранились оборудование, документы и материалы исследований.</p></li>
+        <li class="portal-panel content-panel"><h3>Монстры</h3><p>Опасные обитатели Зоны. Вылазка может закончиться встречей с существом, от которого придётся отступить.</p></li>
+        <li class="portal-panel content-panel"><h3>Мутанты</h3><p>Обитатели, изменившиеся под воздействием Зоны. Отряды могут столкнуться с ними во время исследований и поиска припасов.</p></li>
+        <li class="portal-panel content-panel"><h3>Болезни и заражения</h3><p>Последствия вылазки могут проявиться после возвращения. Помощь с игровыми болезнями оказывает медблок.</p></li>
+      </ul>
+    </section>
+    <section class="object-panel" id="mechanics" role="tabpanel" aria-labelledby="tab-mechanics" tabindex="0" hidden>
+      <aside class="mechanics-notice" aria-labelledby="mechanics-notice-title">
+        <h2 id="mechanics-notice-title">Основные механики</h2>
+        <p>Здесь перечислены только основные механики, с которыми игроки встретятся на Объекте. На игре могут быть и дополнительные механики, с которыми можно будет познакомиться только в процессе.</p>
+      </aside>
+      <ul class="object-blocks" aria-label="Основные игровые механики">
+        <li class="portal-panel content-panel"><h3>Вылазки и столкновения</h3><p>Отряды выходят в Зону за находками. Столкновения со страйкбольными приводами проходят в выделенной игровой зоне.</p></li>
+        <li class="portal-panel content-panel"><h3>Медицина</h3><p>Игровые ранения и болезни влияют на состояние персонажа. В медблоке можно получить помощь и узнать о последствиях заражения.</p></li>
+        <li class="portal-panel content-panel"><h3>Ресурсы и обмен</h3><p>Найденные припасы и детали можно обменять или использовать в заданиях и для поддержания систем Узла.</p></li>
+        <li class="portal-panel content-panel"><h3>Исследования и головоломки</h3><p>Игроки собирают сведения в документах и терминалах, изучают находки и решают игровые задачи.</p></li>
+      </ul>
+    </section>
   </main>
 </body>
 </html>

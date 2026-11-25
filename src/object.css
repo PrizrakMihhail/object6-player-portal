@@ -1,0 +1,68 @@
+.object-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--line2);
+  background: var(--line2);
+}
+.object-tabs button {
+  min-height: 3.15rem;
+  padding: .45rem;
+  border: 0;
+  color: var(--text);
+  background: var(--panel);
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.object-tabs button:hover { background: var(--panel2); }
+.object-tabs button[aria-selected="true"] { color: var(--bg); background: var(--cyan); font-weight: 600; }
+.object-tabs button:focus-visible { outline-offset: -4px; }
+.object-tabs button[aria-selected="true"]:focus-visible { outline-color: var(--bg) !important; }
+
+.object-panel { --object-accent: var(--cyan); }
+#zone { --object-accent: #ffc074; }
+.object-hub, .mechanics-notice {
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--line2);
+  background: linear-gradient(125deg, var(--panel2), var(--panel));
+}
+.object-hub { max-width: 42rem; margin-inline: auto; text-align: center; }
+.object-hub h2, .mechanics-notice h2 {
+  margin: 0 0 .45rem;
+  color: var(--object-accent);
+  font: 500 1.55rem/1.25 var(--display);
+}
+.object-hub p, .mechanics-notice p { margin: 0; }
+.object-blocks {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .9rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.object-blocks h3 { margin-top: 0; color: var(--object-accent); }
+.object-schematic { padding-top: .8rem; margin-top: 0; }
+.object-schematic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: .8rem;
+  border-inline-start: 1px solid var(--line2);
+}
+.object-schematic li { border-top: 2px solid var(--object-accent); }
+.mechanics-notice {
+  --object-accent: #ffc074;
+  border-color: #a87654;
+  border-inline-start: .32rem solid var(--object-accent);
+  background: linear-gradient(120deg, #342043, var(--panel));
+}
+
+@media (max-width: 49rem) { .object-blocks { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 35rem) {
+  .object-blocks { grid-template-columns: minmax(0, 1fr); }
+  .object-tabs button { font-size: .875rem; }
+}
