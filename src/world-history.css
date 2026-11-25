@@ -1,0 +1,83 @@
+.world-content { max-width: 62rem; }
+.history-back { display: inline-block; margin-bottom: .9rem; }
+
+html[data-theme="shard"] .world-hero {
+  margin-bottom: 1.5rem;
+  padding: clamp(1.2rem, 4vw, 2.75rem);
+  background: var(--shard-grid), radial-gradient(ellipse at right, #292679, #110e3e 72%);
+  background-size: 32px 32px, 32px 32px, auto;
+}
+
+.world-hero h1 { margin: 0; font: 500 clamp(2rem, 5vw, 4rem)/1.1 var(--display); text-transform: uppercase; }
+.world-hero p { margin: .8rem 0 0; }
+
+.era-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line2);
+  background: var(--line2);
+  margin-bottom: 1.75rem;
+}
+
+.era-tabs button {
+  min-height: 3rem;
+  padding: .55rem;
+  border: 0;
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+  font-size: .875rem;
+}
+
+.era-tabs button:hover { background: var(--panel2); }
+.era-tabs button[aria-selected="true"] { background: var(--cyan); color: var(--bg); font-weight: 600; }
+.era-tabs button:focus-visible { outline-offset: -4px; outline-color: var(--text) !important; }
+.era-tabs button[aria-selected="true"]:focus-visible { outline-color: var(--bg) !important; }
+
+.timeline {
+  --date-width: 7.15rem;
+  --axis-gap: 1.55rem;
+  position: relative;
+  display: grid;
+  gap: .85rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  inset: .9rem auto 0 calc(var(--date-width) + var(--axis-gap) / 2);
+  width: 1px;
+  background: linear-gradient(var(--cyan), var(--line2) 76%, transparent);
+}
+
+.timeline > li { display: grid; grid-template-columns: var(--date-width) 1fr; gap: var(--axis-gap); position: relative; }
+.timeline > li::before {
+  content: '';
+  position: absolute;
+  top: 1.35rem;
+  left: calc(var(--date-width) + var(--axis-gap) / 2 - .25rem);
+  width: .55rem;
+  height: .55rem;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 .6rem #8ed5ff80;
+}
+
+.timeline-date { margin: .72rem 0 0; color: var(--cyan); text-align: right; font: 500 1.25rem/1.45 var(--display); }
+.timeline-events { min-width: 0; display: grid; gap: .6rem; align-content: start; }
+.timeline-event { border: 1px solid var(--line2); background: var(--panel); }
+.timeline-event summary { padding: .75rem 1rem; font-weight: 600; }
+.timeline-event p { margin: 0; padding: .85rem 1rem 1rem; border-top: 1px solid var(--line); color: var(--text); }
+
+@media (max-width: 36rem) {
+  .era-tabs button { overflow-wrap: anywhere; }
+  .timeline { --date-width: 0rem; --axis-gap: 1.5rem; }
+  .timeline > li { grid-template-columns: minmax(0, 1fr); gap: .35rem; padding-left: 1.5rem; }
+  .timeline > li::before { top: .56rem; }
+  .timeline-date { margin-top: 0; text-align: left; }
+  .timeline-event summary, .timeline-event p { padding-inline: .75rem; }
+}

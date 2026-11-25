@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru" data-theme="shard">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0b31">
+  <meta name="description" content="Хронология мира Объекта №6 от Великой войны до событий предыдущих игр.">
+  <title>История мира — Объект №6</title>
+  <link rel="stylesheet" href="shared/shard.css">
+  <link rel="stylesheet" href="portal.css">
+  <link rel="stylesheet" href="world-history.css">
+  <script type="module" src="world-history.js"></script>
+</head>
+<body>
+  <header class="portal-header">
+    <a class="portal-brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">06</span>
+      <span>Объект №6 <small>Портал игрока</small></span>
+    </a>
+    <a class="portal-button" href="account.html">Личный кабинет</a>
+  </header>
+
+  <main class="portal-content world-content">
+    <a class="history-back" href="index.html#guide">Путеводитель</a>
+    <header class="hero-row world-hero">
+      <h1>История мира</h1>
+      <p class="lead">От Великой войны до событий игр «Объект №6».</p>
+    </header>
+
+    <div class="era-tabs" role="tablist" aria-label="Периоды истории" hidden>
+      <button type="button" role="tab" id="tab-before" aria-controls="before" aria-selected="true">До Конца Времён</button>
+      <button type="button" role="tab" id="tab-after" aria-controls="after" aria-selected="false" tabindex="-1">После Конца Времён</button>
+      <button type="button" role="tab" id="tab-now" aria-controls="now" aria-selected="false" tabindex="-1">Наше Время</button>
+    </div>
+    <section id="before" role="tabpanel" aria-labelledby="tab-before" tabindex="0" hidden>
+      <ol class="timeline" role="list"></ol>
+    </section>
+    <section id="after" role="tabpanel" aria-labelledby="tab-after" tabindex="0" hidden>
+      <ol class="timeline" role="list"></ol>
+    </section>
+    <section id="now" role="tabpanel" aria-labelledby="tab-now" tabindex="0" hidden>
+      <ol class="timeline" role="list"></ol>
+    </section>
+    <noscript><p>Для просмотра хронологии включите JavaScript.</p></noscript>
+  </main>
+</body>
+</html>
