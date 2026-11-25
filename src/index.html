@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru" data-theme="shard">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0b31">
+  <meta name="description" content="Портал новых игроков Объекта №6. Регистрация, личный кабинет и путеводитель по миру игры.">
+  <title>Портал игрока — Объект №6</title>
+  <link rel="stylesheet" href="shared/shard.css">
+  <link rel="stylesheet" href="portal.css">
+</head>
+<body>
+  <header class="portal-header">
+    <a class="portal-brand" href="index.html" aria-current="page">
+      <span class="brand-mark" aria-hidden="true">06</span>
+      <span>Объект №6 <small>Портал игрока</small></span>
+    </a>
+    <a class="portal-button" href="account.html">Личный кабинет</a>
+  </header>
+
+  <main class="portal-content" id="welcome">
+    <section class="hero-row portal-hero" aria-labelledby="welcome-title">
+      <div>
+        <h1 id="welcome-title">Добро пожаловать<br>на Объект №6</h1>
+        <p class="lead">Подайте заявку на игру и познакомьтесь с миром Объекта, его историей и фракциями.</p>
+        <div class="portal-actions">
+          <a class="portal-button primary" href="account.html#register">Зарегистрироваться</a>
+          <a class="portal-button" href="#guide">Путеводитель</a>
+        </div>
+      </div>
+      <div class="hero-emblem" aria-hidden="true">
+        <div class="network-seal"><div>06</div></div>
+      </div>
+    </section>
+
+    <section class="guide" id="guide" aria-labelledby="guide-title">
+      <header class="section-head"><h2 id="guide-title">Путеводитель</h2></header>
+      <div class="guide-layout">
+        <nav class="guide-nav" aria-label="Разделы путеводителя">
+          <a href="#world">История мира</a>
+          <a href="#object">Об Объекте</a>
+          <a href="#history">История Объекта</a>
+          <a href="#team">Мастерская группа</a>
+        </nav>
+
+        <div class="guide-sections">
+          <article class="portal-panel" id="world">
+            <h3>История мира</h3>
+            <details>
+              <summary>Хронология событий</summary>
+              <ul><li>Основные исторические события</li></ul>
+            </details>
+            <details>
+              <summary>Корпорации</summary>
+              <ul><li>MazTek</li><li>Matsumoto</li></ul>
+            </details>
+          </article>
+
+          <article class="portal-panel" id="object">
+            <h3>Об Объекте</h3>
+            <details>
+              <summary>Что есть на Объекте</summary>
+              <div class="guide-tree">
+                <h4>Локации</h4>
+                <ul>
+                  <li>Фрисити
+                    <ul>
+                      <li>Бар</li><li>Медблок</li><li>Пресса</li>
+                      <li>Казино<ul><li>Наркотики</li></ul></li>
+                    </ul>
+                  </li>
+                  <li>Зона<ul><li>Лаборатории</li></ul></li>
+                </ul>
+                <h4>Опасности</h4>
+                <ul><li>Монстры</li><li>Мутанты</li><li>Болезни</li></ul>
+                <h4>Полезности</h4>
+                <ul><li>Химические вещества</li><li>Предметы</li><li>Исследования</li><li>Оружие</li></ul>
+              </div>
+            </details>
+            <div class="guide-item">Фракции на игру</div>
+          </article>
+
+          <article class="portal-panel" id="history">
+            <h3>История Объекта</h3>
+            <div class="guide-item">До КС</div>
+            <div class="guide-item">После КС</div>
+            <details>
+              <summary>Наши дни</summary>
+              <ul><li>Хронология игр</li><li>Бывшие фракции<ul><li>Истории</li></ul></li></ul>
+            </details>
+          </article>
+
+          <article class="portal-panel" id="team">
+            <h3>Мастерская группа</h3>
+            <p>Состав мастерской группы будет добавлен позже.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

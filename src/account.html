@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru" data-theme="shard">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0b31">
+  <title>Личный кабинет — Объект №6</title>
+  <link rel="stylesheet" href="shared/shard.css">
+  <link rel="stylesheet" href="portal.css">
+  <script type="module" src="account.js"></script>
+</head>
+<body>
+  <header class="portal-header">
+    <a class="portal-brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">06</span>
+      <span>Объект №6 <small>Портал игрока</small></span>
+    </a>
+    <a class="portal-button" href="index.html#guide">Путеводитель</a>
+  </header>
+
+  <main class="portal-content account-content">
+    <section class="portal-panel account-panel" aria-labelledby="account-title">
+      <h1 id="account-title" tabindex="-1">Личный кабинет</h1>
+      <p id="account-status" class="account-status" role="status"></p>
+      <noscript><p>Для входа и регистрации включите JavaScript.</p></noscript>
+      <form id="login-form" method="post" hidden>
+        <label>Email
+          <input type="email" name="email" autocomplete="username" maxlength="254" required>
+        </label>
+        <label>Пароль
+          <input type="password" name="password" autocomplete="current-password" required>
+        </label>
+        <div class="portal-actions">
+          <button class="portal-button primary" type="submit">Войти</button>
+          <a href="#register">Зарегистрироваться</a>
+        </div>
+      </form>
+
+      <form id="registration-form" method="post" hidden>
+        <label>Email
+          <input type="email" name="email" autocomplete="username" maxlength="254" required>
+        </label>
+        <label>Пароль
+          <input type="password" name="password" autocomplete="new-password" minlength="8" maxlength="72" aria-describedby="password-hint" required>
+        </label>
+        <p class="input-hint" id="password-hint">Минимум 8 символов, до 72 байт.</p>
+        <label>Имя персонажа
+          <input type="text" name="char_name" maxlength="64" required>
+        </label>
+        <label>Telegram <span>· необязательно</span>
+          <input type="text" name="telegram" maxlength="33" pattern="@?[A-Za-z0-9_]{5,32}" placeholder="@username" spellcheck="false" autocapitalize="none">
+        </label>
+        <label>Фракция <span>· необязательно</span>
+          <input type="text" name="faction" maxlength="64">
+        </label>
+        <div class="portal-actions">
+          <button class="portal-button primary" type="submit">Подать заявку</button>
+          <a href="#login">Уже есть аккаунт</a>
+        </div>
+      </form>
+
+      <div id="player-profile" hidden>
+        <dl class="profile-fields">
+          <div><dt>Статус заявки</dt><dd data-profile="reg_status"></dd></div>
+          <div><dt>Имя персонажа</dt><dd data-profile="char_name"></dd></div>
+          <div><dt>Фракция</dt><dd data-profile="faction"></dd></div>
+          <div><dt>Email</dt><dd data-profile="email"></dd></div>
+          <div><dt>Telegram</dt><dd data-profile="telegram"></dd></div>
+        </dl>
+        <div class="portal-actions">
+          <button class="portal-button" type="button" id="logout">Выйти</button>
+        </div>
+      </div>
+      <button class="portal-button" type="button" id="retry" hidden>Повторить</button>
+    </section>
+  </main>
+</body>
+</html>

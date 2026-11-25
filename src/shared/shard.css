@@ -1,0 +1,54 @@
+/* Portal styles taken from the Object 6 Network Shard theme. */
+html[data-theme="shard"] {
+  --bg: #0b092b;
+  --panel: #100c3a;
+  --panel2: #18164a;
+  --line: #3b4982;
+  --line2: #5984b6;
+  --text: #d5eaff;
+  --muted: #a0b7de;
+  --cyan: #a4e3ff;
+  --red: #ff889b;
+  --shard-grid: linear-gradient(#5d65d027 1px, transparent 1px),
+    linear-gradient(90deg, #5d65d027 1px, transparent 1px);
+  color-scheme: dark;
+  background: var(--bg);
+  color: var(--text);
+
+  body {
+    background: var(--shard-grid), radial-gradient(ellipse at top right, #242065, #0b092b 71%);
+    background-size: 32px 32px, 32px 32px, auto;
+    color: var(--text);
+  }
+
+  .brand-mark {
+    background: #1f255e;
+    color: var(--cyan);
+    border-color: var(--line2);
+    box-shadow: inset 0 0 .65rem #8ed5ff2c;
+  }
+
+  .hero-row { border: 1px solid var(--line2); }
+  .hero-row h1 {
+    color: #bbebff;
+    font-size: clamp(2rem, 4.2vw, 4rem);
+    letter-spacing: .025em;
+    text-shadow: 0 0 .8rem #72c9ff75;
+  }
+  .lead { color: var(--text); }
+
+  .network-seal {
+    color: var(--cyan);
+    border-color: var(--cyan);
+    background: var(--shard-grid), radial-gradient(circle at 34% 25%, #394f9f, #101744 63%, #090e30);
+    background-size: 14px 14px, 14px 14px, auto;
+    box-shadow: inset 0 0 1.4rem #61a9ff48, 0 0 1.1rem #61a9ff36;
+  }
+  .network-seal::before, .network-seal::after { border-color: #91ceff65; }
+
+  .section-head h2 {
+    color: var(--cyan);
+    letter-spacing: .15em;
+    text-shadow: 0 0 .6rem #7acbff55;
+  }
+}
