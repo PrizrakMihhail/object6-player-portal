@@ -34,16 +34,15 @@
 .g4-header small { color: #e57a72; letter-spacing: .08em; }
 .g4-header h2 { margin: .3rem 0 0; color: var(--g4-bright); font: 500 clamp(1.45rem, 4vw, 2.25rem)/1.2 var(--display); text-transform: uppercase; }
 .g4-actions { display: flex; gap: .65rem; margin-top: 1rem; }
-.g4-dialog button { border: 1px solid var(--g4-red); color: var(--g4-bright); background: #1b0707; padding: .45rem .6rem; cursor: pointer; }
-.g4-dialog button:not(:disabled):hover { color: #090101; background: var(--g4-bright); }
+.g4-dialog :is(form, .g4-actions) button { border: 1px solid var(--g4-red); color: var(--g4-bright); background: #1b0707; padding: .45rem .6rem; cursor: pointer; }
+.g4-dialog :is(form, .g4-actions) button:hover { color: #090101; background: var(--g4-bright); }
 .g4-dialog button:focus-visible { outline-color: var(--g4-bright) !important; }
 #dispatch-attempts { color: var(--g4-bright); }
 .g4-hack-grid { display: grid; grid-template-columns: minmax(0, 2.4fr) minmax(11rem, 1fr); border: 1px solid var(--g4-line); }
-.g4-dump { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .15rem .55rem; padding: .65rem; color: #bb4943; font-size: .8125rem; font-variant-numeric: tabular-nums; overflow: auto; }
+.g4-dump { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .15rem .55rem; padding: .65rem; color: #e57a72; font-size: .8125rem; font-variant-numeric: tabular-nums; overflow: auto; }
 .g4-dump > div { white-space: nowrap; }
 .g4-address { margin-right: .55rem; color: #ca6860; }
-.g4-dump button { padding: 0; border: 0; color: #ff9c92; background: transparent; }
-.g4-dump button:disabled { opacity: .42; text-decoration: line-through; cursor: default; }
+.g4-dump button { padding: 0; border: 0; color: inherit; background: transparent; cursor: inherit; }
 .g4-log { overflow: auto; max-height: 20rem; padding: .65rem; border-inline-start: 1px solid var(--g4-line); font-size: .875rem; }
 .g4-log p { margin: 0 0 .35rem; overflow-wrap: anywhere; }
 .g4-fail { color: var(--g4-bright); }
