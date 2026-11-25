@@ -1,4 +1,5 @@
 import { historyEvents } from './world-history-data.js';
+import { createClassifiedCard } from './classified-dispatch.js';
 
 const tablist = document.querySelector('.era-tabs');
 const tabs = [...tablist.querySelectorAll('[role="tab"]')];
@@ -29,6 +30,10 @@ for (const [era, events] of Object.entries(historyEvents)) {
       timeline.append(entry);
     }
 
+    if (extraTemplate === 'classified-dispatch') {
+      cards.append(createClassifiedCard());
+      continue;
+    }
     const card = document.createElement('details');
     card.className = 'timeline-event';
     const heading = document.createElement('summary');

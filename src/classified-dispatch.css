@@ -1,0 +1,65 @@
+.classified-card {
+  padding: .75rem 1rem;
+  color: var(--muted);
+  text-align: left;
+  letter-spacing: .16em;
+  cursor: pointer;
+}
+.classified-card:hover { color: var(--cyan); }
+
+/* Adapted from the red archive terminal and G4 MAIL in object6-network. */
+.g4-dialog {
+  --g4-red: #c64a45;
+  --g4-bright: #ff8b80;
+  --g4-line: #6b2525;
+  width: min(30rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  padding: clamp(.85rem, 3vw, 1.5rem);
+  border: 1px solid var(--g4-red);
+  color: #e0b0a5;
+  background: #0d0303;
+  box-shadow: 0 0 2rem #a3292b50;
+}
+.g4-dialog.g4-wide { width: min(60rem, calc(100% - 2rem)); }
+.g4-dialog::backdrop { background: #080103ce; }
+.g4-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: space-between;
+  gap: .65rem;
+  padding-bottom: .8rem;
+  border-bottom: 2px solid var(--g4-red);
+}
+.g4-header small { color: #e57a72; letter-spacing: .08em; }
+.g4-header h2 { margin: .3rem 0 0; color: var(--g4-bright); font: 500 clamp(1.45rem, 4vw, 2.25rem)/1.2 var(--display); text-transform: uppercase; }
+.g4-actions { display: flex; gap: .65rem; margin-top: 1rem; }
+.g4-dialog button { border: 1px solid var(--g4-red); color: var(--g4-bright); background: #1b0707; padding: .45rem .6rem; cursor: pointer; }
+.g4-dialog button:not(:disabled):hover { color: #090101; background: var(--g4-bright); }
+.g4-dialog button:focus-visible { outline-color: var(--g4-bright) !important; }
+#dispatch-attempts { color: var(--g4-bright); }
+.g4-hack-grid { display: grid; grid-template-columns: minmax(0, 2.4fr) minmax(11rem, 1fr); border: 1px solid var(--g4-line); }
+.g4-dump { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .15rem .55rem; padding: .65rem; color: #bb4943; font-size: .8125rem; font-variant-numeric: tabular-nums; overflow: auto; }
+.g4-dump > div { white-space: nowrap; }
+.g4-address { margin-right: .55rem; color: #ca6860; }
+.g4-dump button { padding: 0; border: 0; color: #ff9c92; background: transparent; }
+.g4-dump button:disabled { opacity: .42; text-decoration: line-through; cursor: default; }
+.g4-log { overflow: auto; max-height: 20rem; padding: .65rem; border-inline-start: 1px solid var(--g4-line); font-size: .875rem; }
+.g4-log p { margin: 0 0 .35rem; overflow-wrap: anywhere; }
+.g4-fail { color: var(--g4-bright); }
+.g4-mail { margin-top: 1rem; border: 1px solid var(--g4-line); }
+.g4-mail-status { margin: 0; padding: .7rem 1rem; background: #1b0707; color: #e57a72; font-size: .8rem; letter-spacing: .07em; }
+.g4-mail h3 { margin: .9rem 1rem; color: var(--g4-bright); }
+.g4-mail dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .4rem .85rem; padding: 0 1rem .85rem; margin: 0; border-bottom: 1px solid var(--g4-line); }
+.g4-mail dt { color: #e57a72; }
+.g4-mail dd { margin: 0; overflow-wrap: anywhere; }
+.g4-letter-body { padding: 1rem; line-height: 1.75; }
+.g4-letter-body p:first-child { margin-top: 0; }
+.g4-signature { display: inline-block; margin-bottom: 0; padding-top: .5rem; color: var(--g4-bright); border-top: 1px solid var(--g4-line); }
+
+@media (max-width: 52rem) { .g4-dump { grid-template-columns: 1fr; } }
+@media (max-width: 35rem) {
+  .g4-hack-grid { grid-template-columns: 1fr; }
+  .g4-dump { max-height: 44dvh; }
+  .g4-log { max-height: 9rem; border-inline-start: 0; border-top: 1px solid var(--g4-line); }
+}

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="portal.css">
   <script type="module" src="shared/network-signal.js"></script>
   <link rel="stylesheet" href="world-history.css">
+  <link rel="stylesheet" href="classified-dispatch.css">
   <script type="module" src="world-history.js"></script>
 </head>
 <body>
@@ -52,6 +53,41 @@
     </section>
     <noscript><p>Для просмотра истории мира включите JavaScript.</p></noscript>
   </main>
+  <dialog class="g4-dialog" id="classified-dispatch" aria-labelledby="classified-title">
+    <header class="g4-header"><div><small>G4 FORTRESS // SECURITY GATE</small><h2 id="classified-title">Информация заблокирована</h2></div></header>
+    <div class="g4-actions"><button type="button" id="start-dispatch-hack">Взломать</button><form method="dialog"><button>Закрыть</button></form></div>
+  </dialog>
+  <dialog class="g4-dialog g4-wide" id="dispatch-hack" aria-labelledby="dispatch-hack-title">
+    <header class="g4-header">
+      <div><small>G4 FORTRESS MAINFRAME</small><h2 id="dispatch-hack-title">Система защиты архива</h2></div>
+      <form method="dialog"><button>Закрыть</button></form>
+    </header>
+    <p>Найдите кодовое слово из 6 символов. Совпадение показывает число букв на своих местах.</p>
+    <p id="dispatch-attempts" role="status"></p>
+    <div class="g4-hack-grid">
+      <div class="g4-dump" id="dispatch-dump" aria-label="Дамп памяти"></div>
+      <div class="g4-log" id="dispatch-log" role="log" aria-label="Журнал взлома"></div>
+    </div>
+  </dialog>
+  <dialog class="g4-dialog g4-wide" id="dispatch-letter" aria-labelledby="dispatch-letter-title">
+    <header class="g4-header">
+      <div><small>G4 MAIL // ВХОДЯЩИЕ</small><h2 id="dispatch-letter-title">Входящее сообщение</h2></div>
+      <form method="dialog"><button>Закрыть письмо</button></form>
+    </header>
+    <article class="g4-mail">
+      <p class="g4-mail-status">ПОЛУЧЕНО · ЗАЩИЩЁННЫЙ КАНАЛ G4</p>
+      <h3>Фрисити. Приказ об экскоммуникации</h3>
+      <dl><dt>От</dt><dd>Барон Сорин Турхейм &lt;baron@fortress.g4&gt;</dd><dt>Кому</dt><dd>FORTRESS</dd><dt>Дата</dt><dd>2176</dd></dl>
+      <div class="g4-letter-body">
+        <p>FORTRESS,</p>
+        <p>Отряд Четвёртой Передачи, находящийся на территории Фрисити, скомпрометирован. Приказываю считать отряд экскоммуницированным из состава ЧВК с момента получения этого сообщения.</p>
+        <p>Личный состав опозорил свои звания и предал Четвёртую Передачу. Исключите всех членов отряда из списков и аннулируйте их полномочия. Исполнение подтвердить.</p>
+        <p>Направьте мне всю документацию по проекту «Лазарь», включая отчёты, переписку и архивные приложения. Запрашиваю полный комплект по защищённому каналу.</p>
+        <p class="g4-signature">Барон.</p>
+      </div>
+      <footer class="g4-mail-status">КОНЕЦ СООБЩЕНИЯ / G4 MAIL RELAY</footer>
+    </article>
+  </dialog>
   <template id="post-catastrophe-map">
     <figure class="timeline-map">
       <div class="timeline-map-view" role="group" aria-label="Регионы карты мира после катастрофы">
