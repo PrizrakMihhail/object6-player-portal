@@ -78,3 +78,20 @@ tablist.addEventListener('keydown', event => {
 window.addEventListener('hashchange', selectFromUrl);
 tablist.hidden = false;
 selectFromUrl();
+
+const backToTop = document.querySelector('.back-to-top');
+const title = document.getElementById('world-title');
+
+function updateBackToTop() {
+  backToTop.hidden = window.scrollY <= 0;
+}
+
+backToTop.addEventListener('click', () => {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  title.focus({ preventScroll: true });
+  window.scrollTo({ top: 0, behavior: reducedMotion ? 'instant' : 'smooth' });
+});
+
+window.addEventListener('scroll', updateBackToTop, { passive: true });
+window.addEventListener('pageshow', updateBackToTop);
+updateBackToTop();
