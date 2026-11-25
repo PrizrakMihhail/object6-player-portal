@@ -10,7 +10,7 @@ for (const [era, events] of Object.entries(historyEvents)) {
   let currentDate;
   let cards;
 
-  for (const [date, title, description] of events) {
+  for (const [date, title, description, extraTemplate] of events) {
     if (date !== currentDate) {
       currentDate = date;
       const entry = document.createElement('li');
@@ -36,11 +36,43 @@ for (const [era, events] of Object.entries(historyEvents)) {
     const copy = document.createElement('p');
     copy.textContent = description;
     card.append(heading, copy);
+    if (extraTemplate) card.append(document.getElementById(extraTemplate).content.cloneNode(true));
     cards.append(card);
   }
 }
 
+const map = document.querySelector('.timeline-map-view');
+const mapReport = document.getElementById('map-report');
+const reports = mapReport?.querySelectorAll('[data-report]');
+
+function positionMapReport() {
+  if (!mapReport?.open) return;
+  const mapBounds = map.getBoundingClientRect();
+  const popupBounds = mapReport.getBoundingClientRect();
+  const left = Math.max(8, Math.min(innerWidth - popupBounds.width - 8,
+    mapBounds.left + (mapBounds.width - popupBounds.width) / 2));
+  const top = Math.max(8, Math.min(innerHeight - popupBounds.height - 8,
+    mapBounds.top + (mapBounds.height - popupBounds.height) / 2));
+  mapReport.style.left = `${left}px`;
+  mapReport.style.top = `${top}px`;
+}
+
+map?.addEventListener('click', event => {
+  const point = event.target.closest('.map-point');
+  if (!point) return;
+
+  for (const report of reports) report.hidden = report.dataset.report !== point.dataset.region;
+  point.focus({ preventScroll: true });
+  mapReport.showModal();
+  positionMapReport();
+});
+
+mapReport?.addEventListener('click', () => mapReport.close());
+window.addEventListener('resize', positionMapReport);
+window.addEventListener('scroll', positionMapReport, { passive: true });
+
 function selectTab(active, { updateHash = false, focus = false } = {}) {
+  if (mapReport?.open) mapReport.close();
   for (const tab of tabs) {
     const selected = tab === active;
     tab.setAttribute('aria-selected', String(selected));

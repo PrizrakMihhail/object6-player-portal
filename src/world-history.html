@@ -51,6 +51,64 @@
     </section>
     <noscript><p>Для просмотра истории мира включите JavaScript.</p></noscript>
   </main>
+  <template id="post-catastrophe-map">
+    <figure class="timeline-map">
+      <div class="timeline-map-view" role="group" aria-label="Регионы карты мира после катастрофы">
+        <img src="assets/post-catastrophe-map.png" alt="Карта мира после катастрофы с разорёнными территориями, пустошами и очагами расселения выживших" width="1752" height="897" loading="lazy">
+        <button type="button" class="map-point" data-region="north-america" style="--x: 16%; --y: 37%" aria-label="Северная и Центральная Америка" aria-haspopup="dialog" aria-controls="map-report">1</button>
+        <button type="button" class="map-point" data-region="south-america" style="--x: 27%; --y: 68%" aria-label="Южная Америка" aria-haspopup="dialog" aria-controls="map-report">2</button>
+        <button type="button" class="map-point" data-region="western-europe" style="--x: 44%; --y: 31%" aria-label="Западная Европа" aria-haspopup="dialog" aria-controls="map-report">3</button>
+        <button type="button" class="map-point" data-region="eastern-europe" style="--x: 54%; --y: 24%" aria-label="Восточная Европа" aria-haspopup="dialog" aria-controls="map-report">4</button>
+        <button type="button" class="map-point" data-region="former-ussr" style="--x: 68%; --y: 19%" aria-label="Бывший СССР" aria-haspopup="dialog" aria-controls="map-report">5</button>
+        <button type="button" class="map-point" data-region="africa" style="--x: 48%; --y: 58%" aria-label="Африка" aria-haspopup="dialog" aria-controls="map-report">6</button>
+        <button type="button" class="map-point" data-region="continental-asia" style="--x: 76%; --y: 46%" aria-label="Континентальная Азия" aria-haspopup="dialog" aria-controls="map-report">7</button>
+        <button type="button" class="map-point" data-region="japan-oceania" style="--x: 90%; --y: 40%" aria-label="Япония и Океания" aria-haspopup="dialog" aria-controls="map-report">8</button>
+        <button type="button" class="map-point" data-region="australia" style="--x: 87%; --y: 80%" aria-label="Австралия" aria-haspopup="dialog" aria-controls="map-report">9</button>
+      </div>
+      <figcaption>Сводка М.А.К. за 2000–2049 годы. Выберите точку, чтобы узнать о регионе. <a href="assets/post-catastrophe-map.png" target="_blank" rel="noopener">Открыть карту в полном размере</a></figcaption>
+    </figure>
+    <dialog class="timeline-map-popup" id="map-report" aria-label="Сводка М.А.К. о регионе">
+      <button type="button" class="map-popup-close" aria-label="Закрыть сводку" autofocus>×</button>
+      <dl class="timeline-map-regions">
+        <div data-report="north-america" hidden>
+          <dt>Северная и Центральная Америка · около 500 тыс.</dt>
+          <dd>Регионы оказались не готовы к катастрофе. Немногочисленные выжившие остались среди выжженных территорий, где восстановить прежние поселения и инфраструктуру не удалось.</dd>
+        </div>
+        <div data-report="south-america" hidden>
+          <dt>Южная Америка · 0 по оценке М.А.К.</dt>
+          <dd>По сводке, район потерял население и дикую фауну. Даже укрывшиеся в военных бункерах не дождались, пока воздух снова станет пригодным для дыхания.</dd>
+        </div>
+        <div data-report="western-europe" hidden>
+          <dt>Западная Европа · около 2 млн</dt>
+          <dd>Небольшие общины укрылись в старых укреплениях и военных бункерах. Многие избегают технологий, чтобы не привлекать оставшиеся роботизированные войска. После бомбардировок дно Ла-Манша поднялось выше уровня моря.</dd>
+        </div>
+        <div data-report="eastern-europe" hidden>
+          <dt>Восточная Европа · около 1,5 млн</dt>
+          <dd>Пустоши перемежаются обширными участками без заражения. Выжившие обживают руины городов. Объекты №3–7 перешли на автономный режим, связь с ними потеряна.</dd>
+        </div>
+        <div data-report="former-ussr" hidden>
+          <dt>Бывший СССР · около 2 млн</dt>
+          <dd>После массированных ударов инфраструктура разрушена. Военные укрылись в крупных бункерах. Часть гражданского населения выжила в специальных убежищах Урала.</dd>
+        </div>
+        <div data-report="africa" hidden>
+          <dt>Африка · около 3 млн</dt>
+          <dd>Судный год затронул Африку слабее многих других регионов. Большая часть инфраструктуры была разрушена ещё во время Великого Передела. Выжившие живут небольшими общинами вдоль рек и каналов.</dd>
+        </div>
+        <div data-report="continental-asia" hidden>
+          <dt>Континентальная Азия · около 2,3 млн</dt>
+          <dd>Радиоактивные пустоши и районы с остаточным заражением разделяют уцелевшие территории. Подземные комплексы Китая, Кореи и Индии сохранились, но лишились связи и испытывают нехватку энергии.</dd>
+        </div>
+        <div data-report="japan-oceania" hidden>
+          <dt>Япония и Океания · около 5,3 тыс.</dt>
+          <dd>Бомбардировки и последовавшие цунами разрушили большую часть региона. Объект №1 перешёл на автономный режим, его персонал находится в гибернации. Связи с остальными Объектами нет.</dd>
+        </div>
+        <div data-report="australia" hidden>
+          <dt>Австралия · около 500 тыс.</dt>
+          <dd>Континент превратился в пустыню. На большей части прежде обжитых земель электромагнитные помехи мешают работе техники. Выжившие переходят к более простым способам хозяйствования.</dd>
+        </div>
+      </dl>
+    </dialog>
+  </template>
   <button class="portal-button back-to-top" type="button" aria-label="Наверх" title="Наверх" hidden>
     <span aria-hidden="true">↑</span>
   </button>

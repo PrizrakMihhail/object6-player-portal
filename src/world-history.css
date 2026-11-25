@@ -138,9 +138,9 @@ html[data-theme="shard"] .world-hero {
 .timeline > li:nth-child(odd) .timeline-events::before { right: auto; left: 100%; }
 
 .timeline-event:is(:hover, [open], :focus-within) { border-color: var(--timeline-accent); }
-.timeline .timeline-event:is(:hover, [open]) summary { color: var(--timeline-accent); background: var(--timeline-panel); }
+.timeline .timeline-event:is(:hover, [open]) > summary { color: var(--timeline-accent); background: var(--timeline-panel); }
 
-.timeline-event summary {
+.timeline-event > summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -152,9 +152,9 @@ html[data-theme="shard"] .world-hero {
   overflow-wrap: anywhere;
 }
 
-.timeline-event summary::-webkit-details-marker { display: none; }
+.timeline-event > summary::-webkit-details-marker { display: none; }
 
-.timeline-event summary::after {
+.timeline-event > summary::after {
   content: '';
   flex: 0 0 .75rem;
   height: .75rem;
@@ -162,8 +162,70 @@ html[data-theme="shard"] .world-hero {
     linear-gradient(var(--timeline-accent), var(--timeline-accent)) center / 1px 100% no-repeat;
 }
 
-.timeline-event[open] summary::after { background-size: 100% 1px, 0 0; }
+.timeline-event[open] > summary::after { background-size: 100% 1px, 0 0; }
 .timeline-event p { margin: 0; padding: .85rem 1rem 1rem; border-top: 1px solid var(--line); color: var(--text); }
+
+.timeline-map { margin: 0 1rem 1rem; }
+.timeline-map-view { position: relative; border: 1px solid var(--timeline-line); border-radius: .25rem; }
+.timeline-map img { display: block; width: 100%; height: auto; border-radius: inherit; }
+.map-point {
+  position: absolute;
+  z-index: 1;
+  top: var(--y);
+  left: var(--x);
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  width: clamp(1.6rem, 3vw, 2rem);
+  aspect-ratio: 1;
+  padding: 0;
+  border: 1px solid var(--cyan);
+  border-radius: 50%;
+  color: var(--cyan);
+  background: var(--bg);
+  box-shadow: 0 0 .45rem #05041b;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .875rem;
+}
+.map-point:hover { background: var(--panel2); }
+.map-point:focus-visible { z-index: 2; }
+.timeline-map figcaption { margin-top: .45rem; color: var(--muted); font-size: .875rem; }
+.timeline-map figcaption a { display: block; margin-top: .35rem; }
+
+.timeline-map-popup {
+  position: fixed;
+  inset: 0 auto auto 0;
+  width: min(22rem, calc(100% - 1.5rem));
+  max-height: calc(100dvh - 1.5rem);
+  margin: 0;
+  padding: 1rem 2.8rem 1rem 1rem;
+  border: 1px solid var(--cyan);
+  border-radius: .4rem;
+  color: var(--text);
+  background: var(--bg);
+  box-shadow: 0 .5rem 2rem #05041bd0;
+  overflow: auto;
+}
+.timeline-map-popup::backdrop { background: #05041b55; }
+.map-popup-close {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  display: grid;
+  place-items: center;
+  width: 1.8rem;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 1px solid var(--line2);
+  border-radius: .25rem;
+  color: var(--cyan);
+  background: var(--panel);
+  cursor: pointer;
+}
+.timeline-map-regions { margin: 0; }
+.timeline-map-regions dt { color: var(--cyan); font-weight: 600; }
+.timeline-map-regions dd { margin: .35rem 0 0; }
 
 @media (max-width: 44rem) {
   .timeline { --axis-position: .55rem; --year-gap: 1.3rem; }
@@ -189,5 +251,6 @@ html[data-theme="shard"] .world-hero {
 @media (max-width: 36rem) {
   .era-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .era-tabs button { overflow-wrap: anywhere; }
-  .timeline-event summary, .timeline-event p { padding-inline: .75rem; }
+  .timeline-event > summary, .timeline-event p { padding-inline: .75rem; }
+  .timeline-map { margin-inline: .75rem; }
 }
