@@ -44,6 +44,41 @@ for (const [era, events] of Object.entries(historyEvents)) {
 const map = document.querySelector('.timeline-map-view');
 const mapReport = document.getElementById('map-report');
 const reports = mapReport?.querySelectorAll('[data-report]');
+const fullMap = document.querySelector('.full-map');
+const mapViewport = fullMap?.querySelector('.full-map-viewport');
+const mapHome = map?.parentElement;
+
+document.querySelector('.map-open')?.addEventListener('click', () => {
+  mapViewport.append(map);
+  fullMap.showModal();
+  mapViewport.scrollTo((mapViewport.scrollWidth - mapViewport.clientWidth) / 2,
+    (mapViewport.scrollHeight - mapViewport.clientHeight) / 2);
+});
+
+fullMap?.addEventListener('close', () => mapHome.prepend(map));
+
+let drag;
+mapViewport?.addEventListener('pointerdown', event => {
+  if (event.pointerType !== 'mouse' || event.button !== 0) return;
+  drag = { id: event.pointerId, x: event.clientX, y: event.clientY,
+    left: mapViewport.scrollLeft, top: mapViewport.scrollTop };
+});
+
+mapViewport?.addEventListener('pointermove', event => {
+  if (drag?.id !== event.pointerId) return;
+  if (!(event.buttons & 1)) { drag = undefined; return; }
+  const x = event.clientX - drag.x;
+  const y = event.clientY - drag.y;
+  if (!mapViewport.hasPointerCapture(event.pointerId)) {
+    if (Math.hypot(x, y) < 5) return;
+    mapViewport.setPointerCapture(event.pointerId);
+  }
+  mapViewport.scrollTo(drag.left - x, drag.top - y);
+});
+
+for (const type of ['pointerup', 'pointercancel']) {
+  mapViewport?.addEventListener(type, () => { drag = undefined; });
+}
 
 function positionMapReport() {
   if (!mapReport?.open) return;
@@ -70,9 +105,11 @@ map?.addEventListener('click', event => {
 mapReport?.addEventListener('click', () => mapReport.close());
 window.addEventListener('resize', positionMapReport);
 window.addEventListener('scroll', positionMapReport, { passive: true });
+mapViewport?.addEventListener('scroll', positionMapReport, { passive: true });
 
 function selectTab(active, { updateHash = false, focus = false } = {}) {
   if (mapReport?.open) mapReport.close();
+  if (fullMap?.open) fullMap.close();
   for (const tab of tabs) {
     const selected = tab === active;
     tab.setAttribute('aria-selected', String(selected));

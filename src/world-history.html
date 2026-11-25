@@ -65,8 +65,15 @@
         <button type="button" class="map-point" data-region="japan-oceania" style="--x: 90%; --y: 40%" aria-label="Япония и Океания" aria-haspopup="dialog" aria-controls="map-report">8</button>
         <button type="button" class="map-point" data-region="australia" style="--x: 87%; --y: 80%" aria-label="Австралия" aria-haspopup="dialog" aria-controls="map-report">9</button>
       </div>
-      <figcaption>Сводка М.А.К. за 2000–2049 годы. Выберите точку, чтобы узнать о регионе. <a href="assets/post-catastrophe-map.png" target="_blank" rel="noopener">Открыть карту в полном размере</a></figcaption>
+      <figcaption>Сводка М.А.К. за 2000–2049 годы. Выберите точку, чтобы узнать о регионе. <button class="portal-button map-open" type="button" aria-haspopup="dialog">Открыть карту в полном размере</button></figcaption>
     </figure>
+    <dialog class="full-map" aria-labelledby="full-map-title">
+      <header class="full-map-header">
+        <h2 id="full-map-title">Мир после катастрофы</h2>
+        <form method="dialog"><button class="portal-button" type="submit" autofocus>Закрыть</button></form>
+      </header>
+      <div class="full-map-viewport" tabindex="0" role="region" aria-label="Карта мира. Перетаскивайте или прокручивайте карту."></div>
+    </dialog>
     <dialog class="timeline-map-popup" id="map-report" aria-label="Сводка М.А.К. о регионе">
       <button type="button" class="map-popup-close" aria-label="Закрыть сводку" autofocus>×</button>
       <dl class="timeline-map-regions">

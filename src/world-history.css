@@ -191,7 +191,30 @@ html[data-theme="shard"] .world-hero {
 .map-point:hover { background: var(--panel2); }
 .map-point:focus-visible { z-index: 2; }
 .timeline-map figcaption { margin-top: .45rem; color: var(--muted); font-size: .875rem; }
-.timeline-map figcaption a { display: block; margin-top: .35rem; }
+.map-open { display: flex; margin-top: .5rem; }
+
+.full-map {
+  width: min(62rem, calc(100% - 2rem));
+  max-height: min(48rem, calc(100dvh - 2rem));
+  padding: 0;
+  border: 1px solid var(--line2);
+  color: var(--text);
+  background: var(--panel);
+}
+.full-map[open] { display: flex; flex-direction: column; }
+.full-map::backdrop { background: #05041bd0; }
+.full-map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  padding: .7rem;
+}
+.full-map-header h2 { margin: 0; font: 500 1.25rem/1.2 var(--display); }
+.full-map-viewport { overflow: auto; cursor: grab; overscroll-behavior: contain; }
+.full-map-viewport:active { cursor: grabbing; }
+.full-map .timeline-map-view { width: max-content; user-select: none; }
+.full-map img { display: block; width: 1752px; height: 897px; pointer-events: none; }
 
 .timeline-map-popup {
   position: fixed;
