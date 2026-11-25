@@ -12,12 +12,20 @@ header.lastElementChild.before(signal);
 const state = signal.querySelector('.signal-state');
 const meter = signal.querySelector('.signal-meter');
 const ping = signal.querySelector('.signal-ping');
+const ripple = document.createElement('div');
+ripple.className = 'signal-ripple';
+ripple.setAttribute('aria-hidden', 'true');
+document.body.append(ripple);
+ripple.addEventListener('animationend', () => ripple.classList.remove('is-active'));
 let timer;
 
 function update() {
   const level = Math.round(50 + Math.random() * 46);
   const unstable = level < 66;
   const latency = Math.round(unstable ? 140 + (66 - level) * 14 : 18 + (96 - level) * 1.7);
+  if (unstable && !signal.classList.contains('signal-unstable')) {
+    ripple.classList.add('is-active');
+  }
   signal.classList.toggle('signal-unstable', unstable);
   state.textContent = unstable ? 'Нестабильно' : 'Стабильно';
   meter.style.setProperty('--signal-level', `${level}%`);
@@ -28,6 +36,7 @@ function update() {
 
 document.addEventListener('visibilitychange', () => {
   clearTimeout(timer);
+  ripple.classList.remove('is-active');
   if (!document.hidden) update();
 });
 if (!document.hidden) update();
