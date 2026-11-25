@@ -60,6 +60,8 @@
   border-inline-start: .32rem solid var(--object-accent);
   background: linear-gradient(120deg, #342043, var(--panel));
 }
+.zone-bestiary { margin-top: 1rem; }
+.zone-bestiary a { margin-top: .75rem; }
 
 @media (max-width: 49rem) { .object-blocks { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 35rem) {

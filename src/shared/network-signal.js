@@ -17,14 +17,18 @@ ripple.className = 'signal-ripple';
 ripple.setAttribute('aria-hidden', 'true');
 document.body.append(ripple);
 let timer;
+const olegus = document.body.dataset.signalProfile === 'olegus';
 
 function update() {
-  const level = Math.round(50 + Math.random() * 46);
+  const level = olegus ? Math.round(20 + Math.random() * 45) : Math.round(50 + Math.random() * 46);
   const unstable = level < 66;
+  const critical = olegus && level < 35;
   const latency = Math.round(unstable ? 140 + (66 - level) * 14 : 18 + (96 - level) * 1.7);
   ripple.classList.toggle('is-active', unstable);
+  ripple.classList.toggle('signal-critical', critical);
   signal.classList.toggle('signal-unstable', unstable);
-  state.textContent = unstable ? 'Нестабильно' : 'Стабильно';
+  signal.classList.toggle('signal-critical', critical);
+  state.textContent = critical ? 'Критический' : unstable ? 'Нестабильно' : 'Стабильно';
   meter.style.setProperty('--signal-level', `${level}%`);
   meter.setAttribute('aria-valuenow', String(level));
   ping.textContent = `${latency} мс`;

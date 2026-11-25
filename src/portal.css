@@ -66,6 +66,7 @@ button, input { font: inherit; }
   font-size: .8125rem;
 }
 .portal-signal.signal-unstable { --signal-color: #ffc074; }
+.portal-signal.signal-critical { --signal-color: var(--red); }
 .signal-label, .signal-ping { color: var(--muted); }
 .signal-state {
   grid-column: 2 / -1;
@@ -97,6 +98,8 @@ button, input { font: inherit; }
 @keyframes signal-pulse { from { opacity: .55; } to { opacity: 1; } }
 
 .signal-ripple {
+  --ripple-low: .18;
+  --ripple-high: .32;
   position: fixed;
   z-index: 4;
   inset: 0;
@@ -107,10 +110,16 @@ button, input { font: inherit; }
     repeating-linear-gradient(0deg, transparent 0 3px, #b4d8ff52 4px 5px);
 }
 .signal-ripple.is-active { animation: signal-ripple 1.6s ease-in-out infinite alternate; }
+.signal-ripple.signal-critical {
+  --ripple-low: .42;
+  --ripple-high: .64;
+  background-image: linear-gradient(transparent 20%, #c1b3ff65 48%, transparent 74%),
+    repeating-linear-gradient(0deg, transparent 0 3px, #c7adff61 4px 5px);
+}
 @keyframes signal-ripple {
-  0% { opacity: .18; background-position: 0 100%, 0 0; }
-  45% { opacity: .32; }
-  100% { opacity: .18; background-position: 0 0, 0 5px; }
+  0% { opacity: var(--ripple-low); background-position: 0 100%, 0 0; }
+  45% { opacity: var(--ripple-high); }
+  100% { opacity: var(--ripple-low); background-position: 0 0, 0 5px; }
 }
 
 @media (max-width: 44rem) {
