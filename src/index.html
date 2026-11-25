@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0d0b31">
-  <meta name="description" content="Портал новых игроков Объекта №6. Регистрация, личный кабинет и путеводитель по миру игры.">
+  <meta name="description" content="Объект №6 — серия ролевых игр живого действия в авторском постапокалиптическом мире. Узнайте об игре и подайте заявку.">
   <title>Портал игрока — Объект №6</title>
   <link rel="stylesheet" href="shared/shard.css">
   <link rel="stylesheet" href="portal.css">
@@ -22,7 +22,7 @@
     <section class="hero-row portal-hero" aria-labelledby="welcome-title">
       <div>
         <h1 id="welcome-title">Добро пожаловать<br>на Объект №6</h1>
-        <p class="lead">Подайте заявку на игру и познакомьтесь с миром Объекта, его историей и фракциями.</p>
+        <p class="lead">«Объект №6» — серия ролевых игр живого действия в авторском постапокалиптическом мире. В руинах научного комплекса вырос Фрисити. Теперь его жители решают, кому доверить власть и что делать с технологиями прошлого.</p>
         <div class="portal-actions">
           <a class="portal-button primary" href="account.html#register">Зарегистрироваться</a>
           <a class="portal-button" href="#guide">Путеводитель</a>
@@ -33,66 +33,20 @@
       </div>
     </section>
 
-    <section class="guide" id="guide" aria-labelledby="guide-title">
+    <section class="portal-panel content-panel game-intro" aria-labelledby="game-title">
+      <h2 id="game-title">Как проходит игра</h2>
+      <p>Ты играешь персонажа, который живёт во Фрисити или приходит туда со своими целями. В городе можно торговать, искать союзников, вести расследования, заниматься исследованиями или помогать поддерживать системы жизнеобеспечения Узла.</p>
+      <p>За пределами города начинаются вылазки за ресурсами и находками. Там исследуют старые сооружения и сталкиваются с обитателями Зоны и другими отрядами. Экшен со страйкбольными приводами проходит в выделенной игровой зоне.</p>
+    </section>
+
+    <section id="guide" aria-labelledby="guide-title">
       <header class="section-head"><h2 id="guide-title">Путеводитель</h2></header>
-      <div class="guide-layout">
-        <nav class="guide-nav" aria-label="Разделы путеводителя">
-          <a href="world-history.html">История мира</a>
-          <a href="#object">Об Объекте</a>
-          <a href="#history">История Объекта</a>
-          <a href="#team">Мастерская группа</a>
-        </nav>
-
-        <div class="guide-sections">
-          <article class="portal-panel" id="world">
-            <h3><a href="world-history.html">История мира</a></h3>
-            <div class="guide-item"><a href="world-history.html">Открыть хронологию событий</a></div>
-            <details>
-              <summary>Корпорации</summary>
-              <ul><li>MazTek</li><li>Matsumoto</li></ul>
-            </details>
-          </article>
-
-          <article class="portal-panel" id="object">
-            <h3>Об Объекте</h3>
-            <details>
-              <summary>Что есть на Объекте</summary>
-              <div class="guide-tree">
-                <h4>Локации</h4>
-                <ul>
-                  <li>Фрисити
-                    <ul>
-                      <li>Бар</li><li>Медблок</li><li>Пресса</li>
-                      <li>Казино<ul><li>Наркотики</li></ul></li>
-                    </ul>
-                  </li>
-                  <li>Зона<ul><li>Лаборатории</li></ul></li>
-                </ul>
-                <h4>Опасности</h4>
-                <ul><li>Монстры</li><li>Мутанты</li><li>Болезни</li></ul>
-                <h4>Полезности</h4>
-                <ul><li>Химические вещества</li><li>Предметы</li><li>Исследования</li><li>Оружие</li></ul>
-              </div>
-            </details>
-            <div class="guide-item">Фракции на игру</div>
-          </article>
-
-          <article class="portal-panel" id="history">
-            <h3>История Объекта</h3>
-            <div class="guide-item">До КС</div>
-            <div class="guide-item">После КС</div>
-            <details>
-              <summary>Наши дни</summary>
-              <ul><li>Хронология игр</li><li>Бывшие фракции<ul><li>Истории</li></ul></li></ul>
-            </details>
-          </article>
-
-          <article class="portal-panel" id="team">
-            <h3>Мастерская группа</h3>
-            <p>Состав мастерской группы будет добавлен позже.</p>
-          </article>
-        </div>
-      </div>
+      <nav class="guide-links" aria-label="Разделы путеводителя">
+        <a class="portal-panel guide-link" id="world" href="world-history.html"><strong>История мира</strong><span>Шкала событий от 1920 года до предыдущих игр.</span></a>
+        <a class="portal-panel guide-link" id="object" href="object.html"><strong>Об Объекте</strong><span>Фрисити, Зона и фракции.</span></a>
+        <a class="portal-panel guide-link" id="history" href="object-history.html"><strong>История Объекта</strong><span>От комплекса Мазтека до Узла Фрисити.</span></a>
+        <a class="portal-panel guide-link" id="team" href="team.html"><strong>Мастерская группа</strong><span>Организаторы игры.</span></a>
+      </nav>
     </section>
   </main>
 </body>

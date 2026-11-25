@@ -134,7 +134,7 @@ html[data-theme="shard"] .portal-hero {
 .portal-button.primary:hover { background: #d5f4ff; }
 .portal-button:disabled { opacity: .66; cursor: wait; }
 
-.section-head h2, .portal-panel h3 {
+.section-head h2, .content-panel h2, .content-panel h3, .guide-link strong {
   margin: 0;
   font-family: var(--display);
   font-weight: 500;
@@ -142,27 +142,38 @@ html[data-theme="shard"] .portal-hero {
 }
 
 .section-head h2 { margin-bottom: 1rem; font-size: clamp(1.35rem, 3vw, 1.75rem); }
-.guide-layout { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 1rem; align-items: start; }
-.guide-nav { display: grid; background: var(--panel); border: 1px solid var(--line2); }
-.guide-nav a { padding: .75rem .9rem; color: var(--text); text-decoration: none; }
-.guide-nav a + a { border-top: 1px solid var(--line); }
-.guide-nav a:hover { background: var(--panel2); color: var(--cyan); }
-.guide-sections { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: start; }
-
 .portal-panel { min-width: 0; border: 1px solid var(--line2); background: var(--panel); }
 .portal-panel:target { border-color: var(--cyan); }
-.portal-panel h3 { padding: .725rem 1rem; color: var(--cyan); font-size: 1.25rem; background: var(--panel2); }
 .portal-panel p { margin: 0; }
-.guide-sections article > p { padding: .75rem 1rem; color: var(--muted); }
-.guide-item, summary { padding: .65rem 1rem; }
-.guide-item, details, .guide-sections article > p { border-top: 1px solid var(--line); }
 summary { cursor: pointer; }
 summary:hover, details[open] summary { color: var(--cyan); background: #17164b; }
-summary::marker { color: var(--cyan); }
-details ul { margin: .45rem 0; padding-inline: 1.8rem .65rem; color: var(--muted); }
-details > ul, .guide-tree { margin: .6rem 0 1rem; }
-.guide-tree { padding: 0 1rem; }
-.guide-tree h4 { margin: .75rem 0 .3rem; color: var(--cyan); font-size: 1rem; }
+
+.guide-links, .guide-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.guide-link {
+  display: grid;
+  align-content: start;
+  gap: .35rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  color: var(--text);
+  text-decoration: none;
+}
+.guide-link strong { color: var(--cyan); font-size: 1.25rem; }
+.guide-link span { color: var(--muted); }
+.guide-link:hover { border-color: var(--cyan); background: var(--panel2); }
+.guide-link:hover strong { text-decoration: underline; }
+
+.guide-page { max-width: 62rem; }
+.guide-back { display: inline-block; margin-bottom: .9rem; }
+html[data-theme="shard"] .guide-hero { padding: clamp(1.2rem, 4vw, 2.75rem); }
+.guide-hero h1 { margin: 0; font: 500 clamp(2rem, 5vw, 4rem)/1.1 var(--display); }
+.guide-hero .lead { margin: .8rem 0 0; }
+.content-panel { padding: clamp(1rem, 3vw, 1.5rem); }
+.content-panel h2 { margin-bottom: .7rem; color: var(--cyan); font-size: 1.35rem; }
+.content-panel h3 { margin: 1rem 0 .3rem; color: var(--cyan); font-size: 1.15rem; }
+.content-panel p + p { margin-top: .75rem; }
+.game-intro { margin-bottom: 2.25rem; }
+.game-intro p { max-width: 78ch; }
+.world-corporations { margin-top: 2rem; }
 
 .account-content { width: min(38rem, calc(100% - 2rem)); }
 .account-panel { padding: clamp(1.2rem, 4vw, 2.25rem); }
@@ -191,15 +202,8 @@ details > ul, .guide-tree { margin: .6rem 0 1rem; }
 .profile-fields dd { margin: 0; overflow-wrap: anywhere; }
 .profile-fields dd[data-profile="reg_status"] { color: var(--cyan); }
 
-@media (max-width: 54rem) {
-  .guide-layout { grid-template-columns: minmax(0, 1fr); }
-  .guide-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .guide-nav a:nth-child(even) { border-left: 1px solid var(--line); }
-  .guide-nav a:nth-child(2) { border-top: 0; }
-}
-
 @media (max-width: 37rem) {
   html[data-theme="shard"] .portal-hero { grid-template-columns: minmax(0, 1fr); min-height: auto; }
   .hero-emblem { display: none; }
-  .guide-sections { grid-template-columns: minmax(0, 1fr); }
+  .guide-links, .guide-panels { grid-template-columns: minmax(0, 1fr); }
 }

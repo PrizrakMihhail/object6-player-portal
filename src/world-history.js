@@ -13,6 +13,12 @@ for (const tab of tabs) {
     if (date !== currentDate) {
       currentDate = date;
       const entry = document.createElement('li');
+      const year = Number.parseInt(date, 10);
+      // The Varna disaster starts the final period before the End of Times.
+      if (era === 'before' && year >= 1976) {
+        const tension = Math.min(100, 20 + (year - 1976) * 80 / (1991 - 1976));
+        entry.style.setProperty('--tension', `${tension}%`);
+      }
       const label = document.createElement('h2');
       label.className = 'timeline-date';
       label.textContent = date;
@@ -46,7 +52,8 @@ function selectTab(active, { updateHash = false, focus = false } = {}) {
 
 function selectFromUrl() {
   const active = tabs.find(tab => `#${tab.getAttribute('aria-controls')}` === location.hash);
-  selectTab(active ?? tabs[0]);
+  const selected = tabs.find(tab => tab.getAttribute('aria-selected') === 'true');
+  selectTab(active ?? (location.hash ? selected : tabs[0]));
 }
 
 tablist.addEventListener('click', event => {
