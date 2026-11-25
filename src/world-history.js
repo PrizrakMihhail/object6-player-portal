@@ -2,21 +2,22 @@ import { historyEvents } from './world-history-data.js';
 
 const tablist = document.querySelector('.era-tabs');
 const tabs = [...tablist.querySelectorAll('[role="tab"]')];
+const escalationStart = 1976;
+const escalationEnd = Number.parseInt(historyEvents.before.at(-1)[0], 10);
 
-for (const tab of tabs) {
-  const era = tab.getAttribute('aria-controls');
+for (const [era, events] of Object.entries(historyEvents)) {
   const timeline = document.getElementById(era).querySelector('.timeline');
   let currentDate;
   let cards;
 
-  for (const [date, title, description] of historyEvents[era]) {
+  for (const [date, title, description] of events) {
     if (date !== currentDate) {
       currentDate = date;
       const entry = document.createElement('li');
       const year = Number.parseInt(date, 10);
       // The Varna disaster starts the final period before the End of Times.
-      if (era === 'before' && year >= 1976) {
-        const tension = Math.min(100, 20 + (year - 1976) * 80 / (1991 - 1976));
+      if (era === 'before' && year >= escalationStart) {
+        const tension = 20 + (year - escalationStart) * 80 / (escalationEnd - escalationStart);
         entry.style.setProperty('--tension', `${tension}%`);
       }
       const label = document.createElement('h2');

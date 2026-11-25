@@ -25,13 +25,13 @@
     <header class="hero-row world-hero">
       <h1>История мира</h1>
       <p class="lead">От Великой войны до событий игр «Объект №6».</p>
-      <p><a href="#corporations">Корпорации</a></p>
     </header>
 
-    <div class="era-tabs" role="tablist" aria-label="Периоды истории" hidden>
+    <div class="era-tabs" role="tablist" aria-label="Разделы истории мира" hidden>
       <button type="button" role="tab" id="tab-before" aria-controls="before" aria-selected="true">До Конца Времён</button>
       <button type="button" role="tab" id="tab-after" aria-controls="after" aria-selected="false" tabindex="-1">После Конца Времён</button>
       <button type="button" role="tab" id="tab-now" aria-controls="now" aria-selected="false" tabindex="-1">Наше Время</button>
+      <button type="button" role="tab" id="tab-corporations" aria-controls="corporations" aria-selected="false" tabindex="-1">Корпорации</button>
     </div>
     <section id="before" role="tabpanel" aria-labelledby="tab-before" tabindex="0" hidden>
       <ol class="timeline" role="list"></ol>
@@ -42,14 +42,14 @@
     <section id="now" role="tabpanel" aria-labelledby="tab-now" tabindex="0" hidden>
       <ol class="timeline" role="list"></ol>
     </section>
-    <noscript><p>Для просмотра хронологии включите JavaScript.</p></noscript>
-    <section class="portal-panel content-panel world-corporations" id="corporations" aria-labelledby="corporations-title">
-      <h2 id="corporations-title">Корпорации</h2>
+    <section class="portal-panel content-panel" id="corporations" role="tabpanel" aria-labelledby="tab-corporations" tabindex="0" hidden>
+      <h2>Корпорации</h2>
       <h3>Мазтек (MazTek)</h3>
       <p>Компания основана в Токио в 1922 году. Она выросла в мегакорпорацию и открыла исследовательские комплексы в Восточной Европе, в том числе Объект №6.</p>
       <h3>Matsumoto</h3>
       <p>Фармацевтическая и биотехнологическая корпорация. В 1985 году приобрела Объект №6 и открыла там европейский исследовательский центр.</p>
     </section>
+    <noscript><p>Для просмотра истории мира включите JavaScript.</p></noscript>
   </main>
 </body>
 </html>

@@ -13,7 +13,7 @@ html[data-theme="shard"] .world-hero {
 
 .era-tabs {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   border: 1px solid var(--line2);
   background: var(--line2);
@@ -172,6 +172,7 @@ html[data-theme="shard"] .world-hero {
 }
 
 @media (max-width: 36rem) {
+  .era-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .era-tabs button { overflow-wrap: anywhere; }
   .timeline-event summary, .timeline-event p { padding-inline: .75rem; }
 }

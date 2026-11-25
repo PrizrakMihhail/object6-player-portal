@@ -173,7 +173,6 @@ html[data-theme="shard"] .guide-hero { padding: clamp(1.2rem, 4vw, 2.75rem); }
 .content-panel p + p { margin-top: .75rem; }
 .game-intro { margin-bottom: 2.25rem; }
 .game-intro p { max-width: 78ch; }
-.world-corporations { margin-top: 2rem; }
 
 .account-content { width: min(38rem, calc(100% - 2rem)); }
 .account-panel { padding: clamp(1.2rem, 4vw, 2.25rem); }
