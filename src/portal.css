@@ -106,11 +106,11 @@ button, input { font: inherit; }
     linear-gradient(transparent 30%, #96ccff30 48%, transparent 65%) 0 0 / 100% 200%,
     repeating-linear-gradient(0deg, transparent 0 3px, #b4d8ff42 4px 5px);
 }
-.signal-ripple.is-active { animation: signal-ripple .65s ease-out; }
+.signal-ripple.is-active { animation: signal-ripple 1.6s ease-in-out infinite; }
 @keyframes signal-ripple {
-  0% { opacity: 0; background-position: 0 100%, 0 0; }
-  24% { opacity: .25; }
-  100% { opacity: 0; background-position: 0 0, 0 8px; }
+  0% { opacity: .14; background-position: 0 100%, 0 0; }
+  45% { opacity: .25; }
+  100% { opacity: .14; background-position: 0 0, 0 5px; }
 }
 
 @media (max-width: 44rem) {
