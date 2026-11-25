@@ -43,6 +43,7 @@
 .g4-dump > div { white-space: nowrap; cursor: text; }
 .g4-address { margin-right: .55rem; color: #ca6860; }
 .g4-dump button { padding: 0; border: 0; color: inherit; background: transparent; cursor: inherit; }
+.g4-dump button:disabled { color: #a65c55; }
 @media (any-pointer: fine) { .g4-dump button:enabled { cursor: pointer; } }
 .g4-log { overflow: auto; max-height: 20rem; padding: .65rem; border-inline-start: 1px solid var(--g4-line); font-size: .875rem; }
 .g4-log p { margin: 0 0 .35rem; overflow-wrap: anywhere; }
