@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="object.css">
   <script type="module" src="shared/network-signal.js"></script>
   <script type="module" src="object-tabs.js"></script>
+  <script type="module" src="olegus-connection.js"></script>
 </head>
 <body>
   <header class="portal-header">
@@ -51,14 +52,9 @@
       </header>
       <ul class="object-blocks object-schematic" aria-label="Что можно встретить в Запретной Зоне">
         <li class="portal-panel content-panel"><h3>Лаборатории</h3><p>Помещения старого комплекса, в которых сохранились оборудование, документы и материалы исследований.</p></li>
-        <li class="portal-panel content-panel"><h3>Мутанты</h3><p>Обитатели, изменившиеся под воздействием Зоны. Отряды могут столкнуться с ними во время исследований и поиска припасов.</p></li>
+        <li class="portal-panel content-panel zone-bestiary"><h3>Монстры и мутанты</h3><p>Досье на обитателей Запретной Зоны хранит Библиотека Олегуса.</p><a class="portal-button primary" id="open-bestiary" href="bestiary.html">Открыть бестиарий</a></li>
         <li class="portal-panel content-panel"><h3>Болезни и заражения</h3><p>Последствия вылазки могут проявиться после возвращения. Помощь с игровыми болезнями оказывает медблок.</p></li>
       </ul>
-      <section class="portal-panel content-panel zone-bestiary" aria-labelledby="bestiary-title">
-        <h2 id="bestiary-title">Монстры</h2>
-        <p>Досье на обитателей Запретной Зоны хранит Библиотека Олегуса.</p>
-        <a class="portal-button primary" href="bestiary.html">Открыть бестиарий</a>
-      </section>
     </section>
     <section class="object-panel" id="mechanics" role="tabpanel" aria-labelledby="tab-mechanics" tabindex="0" hidden>
       <aside class="mechanics-notice" aria-labelledby="mechanics-notice-title">
@@ -73,5 +69,10 @@
       </ul>
     </section>
   </main>
+  <dialog class="olegus-terminal" aria-labelledby="olegus-terminal-title">
+    <header><h2 id="olegus-terminal-title">Терминал связи с Олегусом</h2></header>
+    <ol class="olegus-log" role="log" aria-label="Журнал соединения"></ol>
+    <form method="dialog"><button class="portal-button" type="submit" autofocus>Отменить</button></form>
+  </dialog>
 </body>
 </html>

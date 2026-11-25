@@ -37,39 +37,22 @@
   background: var(--panel2);
 }
 .beast-dossier-header h2 { margin: 0; color: var(--cyan); font: 500 clamp(1.3rem, 4vw, 2rem)/1.25 var(--display); }
-.beast-dossier-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 1rem; padding: 1rem; }
-.beast-gallery { display: flex; flex-wrap: wrap; gap: .6rem; align-items: start; }
-.beast-gallery img { flex: 1; width: 0; min-width: min(100%, 7rem); max-height: 21rem; object-fit: contain; background: var(--bg); }
+.beast-dossier-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; padding: 1rem; }
+.beast-gallery {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: .6rem;
+  height: clamp(13rem, 48dvh, 29rem);
+  padding: .5rem;
+  border: 1px solid var(--line);
+  background: var(--bg);
+}
+.beast-gallery img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
 .beast-facts { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: .6rem; margin: 0; align-content: start; }
 .beast-facts dt { color: var(--cyan); }
 .beast-facts dd { margin: 0; overflow-wrap: anywhere; }
 .beast-description { grid-column: 1 / -1; border-top: 1px solid var(--line); }
 
-.olegus-terminal {
-  width: min(39rem, calc(100% - 2rem));
-  max-height: calc(100dvh - 2rem);
-  padding: clamp(.85rem, 3vw, 1.4rem);
-  border: 1px solid var(--cyan);
-  background: var(--bg);
-  color: var(--text);
-  box-shadow: 0 0 2rem #85bbff50;
-}
-.olegus-terminal::backdrop { background: #05041beb; }
-.olegus-terminal h2 { margin: 0 0 .8rem; color: var(--cyan); font: 500 1.55rem/1.2 var(--display); }
-.olegus-log {
-  height: min(17rem, 49dvh);
-  overflow: auto;
-  margin: 0 0 .85rem;
-  padding: .7rem;
-  border: 1px solid var(--line2);
-  background: var(--panel);
-  list-style: none;
-  font-size: .875rem;
-  overflow-wrap: anywhere;
-}
-.olegus-log li { margin-bottom: .45rem; }
-.olegus-log .command { color: var(--cyan); }
-
 @media (max-width: 50rem) { .bestiary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 35rem) { .beast-dossier-body { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 26rem) { .bestiary-grid { grid-template-columns: minmax(0, 1fr); } }
