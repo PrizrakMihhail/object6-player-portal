@@ -82,17 +82,14 @@
 .beast-preview .portal-button { justify-self: start; }
 
 .beast-dossier {
-  --archive-ink: #28272b;
-  --archive-rule: #c0a67d;
-  --archive-paper: #eee4cf;
-  --archive-amber: #e4aa64;
-  width: min(58rem, calc(100% - 2rem));
+  width: min(71rem, calc(100% - 2rem));
   max-height: calc(100dvh - 2rem);
   padding: 0;
-  border: 1px solid var(--archive-amber);
-  box-shadow: 0 0 2rem #030317a0;
+  border: 1px solid var(--line2);
+  border-radius: .6rem;
+  box-shadow: 0 1.25rem 4rem #030317c0;
   color: var(--text);
-  background: #101036;
+  background: #101033;
 }
 .beast-dossier::backdrop { background: #05041be0; }
 .beast-dossier-header {
@@ -103,50 +100,63 @@
   align-items: center;
   justify-content: space-between;
   gap: .75rem;
-  padding: .85rem 1rem;
-  border-bottom: 1px solid var(--archive-amber);
-  background: #101036;
+  padding: .85rem clamp(.75rem, 3vw, 1.5rem);
+  border-bottom: 1px solid var(--line2);
+  background: #15163f;
 }
-.beast-dossier-header h2 { min-width: 0; margin: 0; color: var(--cyan); font: 500 clamp(1.3rem, 4vw, 2rem)/1.25 var(--display); text-transform: uppercase; overflow-wrap: anywhere; }
-.beast-dossier-header .portal-button { border-color: var(--archive-amber); color: #ffd498; background: transparent; }
-.beast-dossier-header .portal-button:hover { background: #332634; }
-.beast-dossier-body { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.6fr); padding: 1rem; }
-.beast-image-slot {
-  grid-column: 1 / -1;
-  margin: 0 0 1rem;
-  border: 1px solid var(--archive-amber);
-  background: #101022;
-}
-.beast-image-slot figcaption {
-  padding: .5rem .85rem;
-  border-bottom: 1px solid #6e503a;
-  color: #ffd498;
-  font-size: .875rem;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-.beast-gallery {
+.beast-dossier-header h2 { min-width: 0; margin: 0; color: var(--cyan); font: 500 clamp(1.3rem, 4vw, 2rem)/1.2 var(--display); overflow-wrap: anywhere; }
+.beast-dossier-header .portal-button { background: transparent; }
+.beast-dossier-header .portal-button:hover { background: var(--panel2); }
+.beast-dossier-body {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(0, 1fr);
-  gap: .6rem;
-  height: clamp(13rem, 48dvh, 29rem);
-  padding: .65rem;
-  background: var(--shard-grid), #09091b;
-  background-size: 24px 24px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(.85rem, 2.5vw, 1.5rem);
+  align-items: start;
+  padding: clamp(.75rem, 3vw, 1.5rem);
 }
-.beast-gallery img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
-.beast-facts, .beast-description { color: var(--archive-ink); background: var(--archive-paper); }
-.beast-facts { display: grid; grid-template-columns: minmax(0, 1fr); gap: .2rem; margin: 0; padding: .85rem 1rem; align-content: start; }
-.beast-facts dt { color: #674727; font-weight: 600; font-size: .875rem; }
+.beast-image-slot {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line2);
+  border-radius: .35rem;
+  background: #0a0b25;
+}
+.beast-gallery { display: grid; aspect-ratio: 16 / 9; background: #09091b; }
+.beast-gallery img { width: 100%; height: 100%; min-width: 0; min-height: 0; object-fit: contain; }
+.beast-gallery-toolbar {
+  display: grid;
+  grid-template-columns: 2.75rem 1fr 2.75rem;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem .6rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  text-align: center;
+}
+.beast-gallery-arrow { padding: 0; color: var(--cyan); font-size: 1.65rem; line-height: 1; }
+.beast-gallery-count { font-size: .875rem; font-variant-numeric: tabular-nums; }
+.beast-facts {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.3fr);
+  gap: .6rem .85rem;
+  margin: 0;
+  padding: .85rem;
+  border: 1px solid var(--line);
+  border-radius: .35rem;
+  background: #151740;
+  font-size: .875rem;
+}
+.beast-facts dt { color: var(--cyan); }
+.beast-facts dt:last-of-type, .beast-facts dd:last-child { color: #ffc98e; }
 .beast-facts dd { margin: 0; overflow-wrap: anywhere; }
-.beast-facts dd + dt { margin-top: .45rem; padding-top: .6rem; border-top: 1px solid var(--archive-rule); }
-.beast-description { padding: .85rem 1rem; border-inline-start: 1px solid var(--archive-rule); font: 1.08rem/1.55 Georgia, serif; }
+.beast-description { padding-top: .95rem; color: var(--text); font: 1.05rem/1.6 system-ui, sans-serif; }
 .beast-description p { margin: 0 0 .85rem; }
 .beast-description p:last-child { margin-bottom: 0; }
-.beast-description strong { color: #674727; }
+.beast-description strong { color: var(--cyan); }
 
 @media (min-width: 50rem) {
+  .beast-dossier-body { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
   .beast-card summary {
     grid-template-columns: minmax(0, 36%) minmax(0, 1fr);
     grid-template-areas: 'portrait title' 'portrait aggression' 'portrait threat';
@@ -157,13 +167,13 @@
   .beast-aggression { grid-area: aggression; align-self: center; }
   .beast-danger { grid-area: threat; min-height: 2.8rem; }
 }
-@media (max-width: 38rem) {
-  .beast-dossier-body { grid-template-columns: minmax(0, 1fr); padding: .65rem; }
-  .beast-description { border-inline-start: 0; border-top: 1px solid var(--archive-rule); }
+@media (min-width: 50rem) and (min-height: 32rem) {
+  .beast-image-slot { position: sticky; top: 5.25rem; }
 }
 @media (max-width: 26rem) {
   .bestiary-grid { grid-template-columns: minmax(0, 1fr); }
   .beast-name { min-height: 3rem; }
   .beast-danger { min-height: 2.8rem; }
   .beast-dossier-header h2 { font-size: clamp(1rem, 5.3vw, 1.3rem); }
+  .beast-description { font-size: 1rem; }
 }

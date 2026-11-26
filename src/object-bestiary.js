@@ -7,6 +7,29 @@ grid.addEventListener('click', event => {
   if (button) document.getElementById(button.dataset.dossier).showModal();
 });
 
+for (const gallery of document.querySelectorAll('.beast-image-slot')) {
+  const slides = [...gallery.querySelectorAll('.beast-gallery img')];
+  const count = gallery.querySelector('.beast-gallery-count');
+  let current = 0;
+
+  function move(direction) {
+    slides[current].hidden = true;
+    current = (current + direction + slides.length) % slides.length;
+    slides[current].hidden = false;
+    count.textContent = `${current + 1} / ${slides.length}`;
+  }
+
+  gallery.addEventListener('click', event => {
+    const button = event.target.closest('button[data-slide]');
+    if (button) move(Number(button.dataset.slide));
+  });
+  gallery.addEventListener('keydown', event => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    move(event.key === 'ArrowRight' ? 1 : -1);
+  });
+}
+
 grid.addEventListener('toggle', event => {
   const card = event.target;
   if (!card.matches('.beast-card')) return;
