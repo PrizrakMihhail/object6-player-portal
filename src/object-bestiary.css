@@ -326,3 +326,90 @@
   .beast-dossier-header h2 { font-size: clamp(1.08rem, 5vw, 1.35rem); }
   .beast-description { font-size: 1rem; }
 }
+
+.bestiary-page {
+  --archive-surface: #d0d1cd;
+  --archive-light: #f8f9f4;
+  --archive-shadow: #575f5e;
+  --archive-ink: #171d1c;
+  --archive-caption: #244c56;
+  background: #096b6a;
+}
+.bestiary-page .guide-page {
+  margin-block: 1.2rem;
+  padding: clamp(.75rem, 3vw, 1.5rem);
+  border: 2px solid;
+  border-color: var(--archive-light) var(--archive-shadow) var(--archive-shadow) var(--archive-light);
+  background: var(--archive-surface);
+  color: var(--archive-ink);
+  font-family: Tahoma, Verdana, system-ui, sans-serif;
+}
+.bestiary-page .guide-back { color: #174354; }
+.bestiary-page .guide-hero {
+  padding: .6rem .8rem;
+  border-radius: 0;
+  background: var(--archive-caption);
+  color: white;
+}
+.bestiary-page .guide-hero :is(h1, .lead) { color: white; font-family: inherit; }
+.bestiary-page .bestiary-credit { color: #313938; }
+.bestiary-page .section-head h2 { color: var(--archive-ink); font-family: inherit; }
+.bestiary-page :is(.beast-card, .bestiary-report) {
+  border: 2px solid;
+  border-color: var(--archive-light) var(--archive-shadow) var(--archive-shadow) var(--archive-light);
+  border-radius: 0;
+  background: var(--archive-surface);
+  color: var(--archive-ink);
+}
+.bestiary-page .beast-card summary { background: #e3e4df; }
+.bestiary-page .beast-card summary:is(:hover, :focus-visible),
+.bestiary-page .beast-card[open] summary { background: #f1f2ed; }
+.bestiary-page .beast-name {
+  border-color: var(--archive-shadow);
+  color: var(--archive-ink);
+  font: 700 1rem/1.25 Tahoma, Verdana, system-ui, sans-serif;
+  text-shadow: none;
+}
+.bestiary-page .beast-card summary::after {
+  border-color: var(--archive-shadow);
+  color: var(--archive-ink);
+  background: var(--archive-surface);
+}
+.bestiary-page .beast-thumbnail { border-color: var(--archive-shadow); }
+.bestiary-page .beast-thumbnail::after { content: none; }
+.bestiary-page .beast-aggression { color: #283231; }
+.bestiary-page .beast-danger { color: #543b25; background: #ebe6db; }
+.bestiary-page .beast-card[data-danger="low"] .beast-danger { color: #194a44; }
+.bestiary-page .beast-card:is([data-danger="high"], [data-danger="extreme"]) .beast-danger { color: #732b28; }
+.bestiary-page .beast-preview { border-color: var(--archive-shadow); }
+.bestiary-page .beast-preview strong { color: var(--archive-ink); }
+.bestiary-page .beast-dossier {
+  --dossier-chrome: var(--archive-surface);
+  --dossier-highlight: var(--archive-light);
+  --dossier-shadow: var(--archive-shadow);
+  border-color: var(--archive-light) var(--archive-shadow) var(--archive-shadow) var(--archive-light);
+  border-radius: 0;
+}
+.bestiary-page .beast-dossier-header { background: var(--archive-caption); border-color: var(--archive-shadow); }
+.bestiary-page .beast-dossier-source { color: #eef5f3; }
+.bestiary-page .beast-dossier-header h2 { text-shadow: none; }
+.bestiary-page :is(.beast-gallery-toolbar, .beast-description h3, .bestiary-report > header) {
+  background: var(--archive-surface);
+  border-color: var(--archive-shadow);
+  color: var(--archive-ink);
+}
+.bestiary-page :is(.beast-record, .bestiary-report input, .bestiary-report textarea) { background: #fbfcf9; color: var(--archive-ink); }
+.bestiary-page .beast-facts, .bestiary-page .beast-facts dt { background: #ebeeea; color: var(--archive-ink); }
+.bestiary-page :is(.guide-page, .beast-dossier, .bestiary-report) .portal-button {
+  border: 2px solid;
+  border-color: var(--archive-light) var(--archive-shadow) var(--archive-shadow) var(--archive-light);
+  border-radius: 0;
+  background: var(--archive-surface);
+  color: var(--archive-ink);
+}
+.bestiary-page :is(.guide-page, .beast-dossier, .bestiary-report) .portal-button:hover { background: #e7e9e2; }
+.bestiary-page :is(.guide-page, .beast-dossier, .bestiary-report) .portal-button:active {
+  border-color: var(--archive-shadow) var(--archive-light) var(--archive-light) var(--archive-shadow);
+}
+.bestiary-page :is(.guide-page, .beast-dossier, .bestiary-report) :focus-visible { outline-color: #17617a; }
+.bestiary-page .bestiary-report-status[data-error] { color: #8c241e; }
