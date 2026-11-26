@@ -83,19 +83,23 @@
 .beast-preview .portal-button { justify-self: start; }
 
 .beast-dossier {
+  --olegus-amber: #f1c45b;
+  --olegus-edge: #72794d;
+  --olegus-paper: #eee8d7;
+  --olegus-label: ui-monospace, Consolas, monospace;
   width: min(71rem, calc(100% - 2rem));
   max-height: calc(100dvh - 2rem);
   padding: 0;
   overflow: hidden;
   overscroll-behavior: contain;
-  border: 1px solid var(--line2);
-  border-radius: .6rem;
-  box-shadow: 0 1.25rem 4rem #030317c0;
-  color: var(--text);
-  background: #101033;
+  border: 1px solid var(--olegus-edge);
+  border-radius: .25rem;
+  box-shadow: 0 1.25rem 4rem #0b100cc4;
+  color: #f7f2e5;
+  background: #222a1c;
 }
 .beast-dossier[open] { display: flex; flex-direction: column; }
-.beast-dossier::backdrop { background: #05041be0; }
+.beast-dossier::backdrop { background: #080d0bd9; }
 .beast-dossier-header {
   flex: none;
   display: flex;
@@ -103,18 +107,37 @@
   justify-content: space-between;
   gap: .75rem;
   padding: .85rem clamp(.75rem, 3vw, 1.5rem);
-  border-bottom: 1px solid var(--line2);
-  background: #15163f;
+  border-bottom: 1px solid #9f8648;
+  background:
+    linear-gradient(90deg, #1b2516eb, #1b2516b5),
+    #263321 url("assets/bestiary/olegus-texture.webp") center / 24rem auto;
 }
-.beast-dossier-header h2 { min-width: 0; margin: 0; color: var(--cyan); font: 500 clamp(1.3rem, 4vw, 2rem)/1.2 var(--display); overflow-wrap: anywhere; }
-.beast-dossier-header .portal-button { background: transparent; }
-.beast-dossier-header .portal-button:hover { background: var(--panel2); }
+.beast-dossier-heading { min-width: 0; }
+.beast-dossier-source {
+  margin: 0 0 .3rem;
+  color: var(--olegus-amber);
+  font: 600 .72rem/1.3 var(--olegus-label);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.beast-dossier-header h2 {
+  margin: 0;
+  font: 700 clamp(1.15rem, 3.2vw, 2.1rem)/1.12 system-ui, sans-serif;
+  overflow-wrap: anywhere;
+}
+.beast-dossier .portal-button {
+  border-color: #a48e52;
+  color: var(--olegus-amber);
+  background: #202719;
+}
+.beast-dossier .portal-button:hover { background: #41472b; }
+.beast-dossier :focus-visible { outline-color: var(--olegus-amber); }
 .beast-dossier-body {
   display: grid;
   grid-template: auto minmax(0, 1fr) / minmax(0, 1fr);
   min-height: 0;
-  gap: clamp(.85rem, 2.5vw, 1.5rem);
-  padding: clamp(.75rem, 3vw, 1.5rem);
+  gap: clamp(.65rem, 2vw, 1.25rem);
+  padding: clamp(.65rem, 2vw, 1.25rem);
 }
 .beast-image-slot {
   display: grid;
@@ -124,9 +147,8 @@
   max-height: 100%;
   margin: 0;
   overflow: hidden;
-  border: 1px solid var(--line2);
-  border-radius: .35rem;
-  background: #0a0b25;
+  border: 1px solid var(--olegus-edge);
+  background: #151c12;
 }
 .beast-gallery {
   display: grid;
@@ -136,7 +158,7 @@
   min-height: 0;
   max-height: 32dvh;
   aspect-ratio: 16 / 9;
-  background: #09091b;
+  background: #152014;
 }
 .beast-gallery img { width: 100%; height: 100%; min-width: 0; min-height: 0; object-fit: contain; }
 .beast-gallery-toolbar {
@@ -144,40 +166,53 @@
   grid-template-columns: 2.75rem 1fr 2.75rem;
   align-items: center;
   gap: .5rem;
-  padding: .5rem .6rem;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
+  padding: .45rem .55rem;
+  border-top: 1px solid var(--olegus-edge);
+  color: var(--olegus-amber);
+  background: #303a24;
   text-align: center;
 }
-.beast-gallery-arrow { padding: 0; color: var(--cyan); font-size: 1.65rem; line-height: 1; }
-.beast-gallery-count { font-size: .875rem; font-variant-numeric: tabular-nums; }
+.beast-gallery-arrow { padding: 0; font-size: 1.65rem; line-height: 1; }
+.beast-gallery-count { font: 600 .85rem/1.2 var(--olegus-label); font-variant-numeric: tabular-nums; }
 .beast-record {
   min-height: 0;
+  padding: clamp(.85rem, 2.3vw, 1.75rem);
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-gutter: stable;
+  scrollbar-color: #797850 var(--olegus-paper);
+  border: 1px solid #c4b892;
+  color: #282c21;
+  background: var(--olegus-paper);
 }
 .beast-facts {
   display: grid;
-  grid-template-columns: minmax(0, .9fr) minmax(0, 1.3fr);
-  gap: .6rem .85rem;
+  grid-template-columns: minmax(min(8rem, 56%), .85fr) minmax(0, 1.25fr);
   margin: 0;
-  padding: .85rem;
-  border: 1px solid var(--line);
-  border-radius: .35rem;
-  background: #151740;
-  font-size: .875rem;
+  border-block: 2px solid #707751;
+  background: #e1dfcb;
+  font: 400 .9rem/1.4 system-ui, sans-serif;
 }
-.beast-facts dt { color: var(--cyan); }
-.beast-facts dt:last-of-type, .beast-facts dd:last-child { color: #ffc98e; }
-.beast-facts dd { margin: 0; overflow-wrap: anywhere; }
-.beast-description { padding-top: .95rem; color: var(--text); font: 1.05rem/1.6 system-ui, sans-serif; }
-.beast-description p { margin: 0 0 .85rem; }
-.beast-description p:last-child { margin-bottom: 0; }
-.beast-description strong { color: var(--cyan); }
+.beast-facts > * { padding: .48rem .5rem; overflow-wrap: anywhere; }
+.beast-facts > :nth-child(n+3) { border-top: 1px solid #bab89c; }
+.beast-facts dt { color: #3b482a; font-weight: 700; }
+.beast-facts dt:last-of-type, .beast-facts dd:last-child { color: #643d18; font-weight: 700; }
+.beast-facts dd { margin: 0; }
+.beast-description { font: 1.05rem/1.65 Georgia, serif; }
+.beast-description h3 {
+  margin: 1.2rem 0 .45rem;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid #bab292;
+  color: #394729;
+  font: 700 .82rem/1.3 system-ui, sans-serif;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+.beast-description p { margin: 0; }
+.beast-description p + p { margin-top: .8rem; }
 
 @media (min-width: 50rem), (min-width: 32rem) and (orientation: landscape) {
-  .beast-dossier-body { grid-template: minmax(0, 1fr) / minmax(0, 1.1fr) minmax(0, 1fr); }
+  .beast-dossier-body { grid-template: minmax(0, 1fr) / minmax(0, .95fr) minmax(0, 1.05fr); }
   .beast-gallery { max-height: none; }
 }
 @media (min-width: 50rem) {
@@ -195,6 +230,8 @@
   .bestiary-grid { grid-template-columns: minmax(0, 1fr); }
   .beast-name { min-height: 3rem; }
   .beast-danger { min-height: 2.8rem; }
-  .beast-dossier-header h2 { font-size: clamp(1rem, 5.3vw, 1.3rem); }
+  .beast-dossier { width: calc(100% - 1rem); max-height: calc(100dvh - 1rem); }
+  .beast-dossier-header { padding: .65rem .75rem; }
+  .beast-dossier-header h2 { font-size: clamp(1.08rem, 5vw, 1.35rem); }
   .beast-description { font-size: 1rem; }
 }
