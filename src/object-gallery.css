@@ -32,3 +32,5 @@
 .gallery-preview figcaption { padding: .45rem 0 0; color: var(--muted); }
 .gallery-controls button, .gallery-preview header button { min-width: 2.75rem; padding: 0; font-size: 1.45rem; }
 .gallery-controls [role="status"] { font-variant-numeric: tabular-nums; }
+.gallery-slideshow { display: flex; margin: .75rem auto 0; }
+.gallery-slideshow[aria-pressed="true"] { border-color: var(--cyan); color: var(--bg); background: var(--cyan); }

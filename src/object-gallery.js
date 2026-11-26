@@ -4,8 +4,18 @@ const preview = document.querySelector('.gallery-preview');
 const image = preview.querySelector('figure img');
 const caption = preview.querySelector('figcaption');
 const position = preview.querySelector('[role="status"]');
+const slideshow = preview.querySelector('.gallery-slideshow');
 let current = 0;
 let opener;
+let timer;
+
+function setSlideshow(active) {
+  clearTimeout(timer);
+  slideshow.setAttribute('aria-pressed', String(active));
+  if (active) timer = setTimeout(() => {
+    if (preview.open) show(current + 1);
+  }, 30000);
+}
 
 function show(index) {
   current = (index + photos.length) % photos.length;
@@ -15,13 +25,17 @@ function show(index) {
   image.alt = description;
   caption.textContent = description;
   position.textContent = `${current + 1} / ${photos.length}`;
+  if (slideshow.getAttribute('aria-pressed') === 'true') setSlideshow(true);
 }
+
+slideshow.addEventListener('click', () => setSlideshow(slideshow.getAttribute('aria-pressed') !== 'true'));
 
 grid.addEventListener('click', event => {
   const photo = event.target.closest('a');
   if (!photo || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
   event.preventDefault();
   opener = photo;
+  setSlideshow(false);
   show(photos.indexOf(photo));
   preview.showModal();
 });
@@ -37,4 +51,8 @@ preview.addEventListener('keydown', event => {
   show(current + (event.key === 'ArrowLeft' ? -1 : 1));
 });
 
-preview.addEventListener('close', () => opener.focus({ preventScroll: true }));
+preview.addEventListener('close', () => {
+  if (preview.open) return;
+  setSlideshow(false);
+  opener.focus({ preventScroll: true });
+});
