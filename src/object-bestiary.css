@@ -105,18 +105,21 @@
 .beast-dossier::backdrop { background: #0a1224b8; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .beast-dossier[open] { animation: beast-dossier-enter 240ms cubic-bezier(.2, .75, .25, 1); }
-  .beast-dossier[open]::backdrop { animation: beast-dossier-backdrop-enter 240ms ease-out; }
-}
+  .beast-dossier {
+    transition:
+      opacity 240ms ease,
+      transform 240ms cubic-bezier(.2, .75, .25, 1),
+      display 240ms allow-discrete,
+      overlay 240ms allow-discrete;
+  }
+  .beast-dossier::backdrop { transition: opacity 240ms ease, display 240ms allow-discrete; }
+  .beast-dossier:not([open]) { opacity: 0; transform: translateY(.65rem) scale(.985); }
+  .beast-dossier:not([open])::backdrop { opacity: 0; }
 
-@keyframes beast-dossier-enter {
-  from { opacity: 0; transform: translateY(.65rem) scale(.985); }
-  to { opacity: 1; transform: none; }
-}
-
-@keyframes beast-dossier-backdrop-enter {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  @starting-style {
+    .beast-dossier[open] { opacity: 0; transform: translateY(.65rem) scale(.985); }
+    .beast-dossier[open]::backdrop { opacity: 0; }
+  }
 }
 
 .beast-dossier-header {

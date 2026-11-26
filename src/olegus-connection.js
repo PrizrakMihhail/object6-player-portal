@@ -67,7 +67,7 @@ link.addEventListener('click', event => {
   }
 
   writeLine();
-  timer = setInterval(writeLine, 800);
+  timer = setInterval(writeLine, 1100);
   void preloadBestiary(link.href, preloadController.signal);
 });
 
