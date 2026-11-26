@@ -16,6 +16,7 @@
   transform-origin: top center;
   transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
+.beast-card[data-danger="low"] { --threat: var(--cyan); }
 .beast-card[data-danger="high"] { --threat: #ffaa94; }
 .beast-card[data-danger="extreme"] { --threat: var(--red); }
 .beast-card:is([open], :hover, :focus-within) { border-color: var(--cyan); }
