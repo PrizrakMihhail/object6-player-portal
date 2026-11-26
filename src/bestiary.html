@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="object-bestiary.css">
   <script type="module" src="shared/network-signal.js"></script>
   <script type="module" src="object-bestiary.js"></script>
+  <script type="module" src="bestiary-report.js"></script>
 </head>
 <body data-signal-profile="olegus">
   <header class="portal-header">
@@ -28,6 +29,7 @@
     <section class="bestiary" aria-labelledby="bestiary-title">
       <header class="section-head"><h2 id="bestiary-title">Монстры</h2></header>
       <p class="bestiary-credit">Описания и иллюстрации составил со слов очевидцев Семён фон Кройц, глава отдела криптологии Библиотеки Олегуса. Если заметите расхождения с реальными фактами, свяжитесь с ним.</p>
+      <button class="portal-button bestiary-report-trigger" id="open-bestiary-report" type="button" aria-haspopup="dialog">Сообщить о неточности</button>
       <div class="bestiary-grid">
         <details class="portal-panel beast-card" name="bestiary-cards" data-danger="medium">
           <summary>
@@ -360,6 +362,27 @@
         </div>
       </div>
     </div>
+  </dialog>
+  <dialog class="bestiary-report" id="bestiary-report" aria-labelledby="bestiary-report-title">
+    <header>
+      <h2 id="bestiary-report-title">Написать сообщение</h2>
+      <form method="dialog"><button class="portal-button bestiary-report-close" aria-label="Закрыть">×</button></form>
+    </header>
+    <p class="bestiary-report-status" id="bestiary-report-status" role="status"></p>
+    <form id="bestiary-report-form">
+      <fieldset>
+        <label>Кому
+          <input name="to" type="text" value="Семён фон Кройц" readonly>
+        </label>
+        <label>Тема
+          <input name="title" type="text" maxlength="101" required autofocus>
+        </label>
+        <label>Сообщение
+          <textarea name="message" rows="7" maxlength="10000" required></textarea>
+        </label>
+        <div><button type="submit" class="portal-button primary">Отправить</button></div>
+      </fieldset>
+    </form>
   </dialog>
 </body>
 </html>
