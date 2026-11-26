@@ -130,7 +130,15 @@ export function createClassifiedCard() {
   button.className = 'timeline-event classified-card';
   button.setAttribute('aria-label', 'Открыть закрытую запись');
   button.setAttribute('aria-haspopup', 'dialog');
-  button.textContent = '▓▒░ ███▒ ░▓█▒▓ ▒█';
+  const title = document.createElement('span');
+  title.className = 'classified-card-title';
+  title.setAttribute('aria-hidden', 'true');
+  for (const text of ['▓▒░ ███▒ ░▓█▒▓ ▒█', '░▓░ ▓▒██ ▒░█▓▒ █░', '█░▒ ▒▓▓░ █▒░█▓ ░▒']) {
+    const frame = document.createElement('span');
+    frame.textContent = text;
+    title.append(frame);
+  }
+  button.append(title);
   button.addEventListener('click', () => gate.showModal());
   return button;
 }
