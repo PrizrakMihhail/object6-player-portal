@@ -138,6 +138,12 @@
   .faction-sheet-heading { grid-template-columns: minmax(0, 1fr); }
 }
 
+@media (orientation: landscape) and (max-height: 31rem) {
+  .faction-sheet img {
+    max-width: min(60rem, calc(150dvh - 13.5rem));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .faction-card { transition: none; }
   .faction-card:hover { transform: none; }
