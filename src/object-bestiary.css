@@ -1,15 +1,32 @@
 .bestiary { margin-top: 2rem; }
 .bestiary-credit { margin: 0 0 1rem; color: var(--muted); }
-.bestiary-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; align-items: start; }
+.bestiary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.35rem;
+  align-items: start;
+  padding-bottom: var(--bestiary-scroll-room, 0px);
+}
 .beast-card {
   --threat: #f6c484;
   --archive-edge: #6999c3;
   background: #0c0c37;
   border-color: var(--archive-edge);
+  position: relative;
+  transform-origin: top center;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 .beast-card[data-danger="high"] { --threat: #ffaa94; }
 .beast-card[data-danger="extreme"] { --threat: var(--red); }
 .beast-card:is([open], :hover, :focus-within) { border-color: var(--cyan); }
+@media (hover: hover) and (pointer: fine) {
+  .beast-card:hover {
+    z-index: 1;
+    transform: scale(1.05);
+    box-shadow: 0 0 1.2rem #79d2ff40;
+  }
+}
+@media (prefers-reduced-motion: reduce) { .beast-card { transition: none; } }
 .beast-card summary { position: relative; display: grid; list-style: none; }
 .beast-card summary:is(:hover, :focus-visible), .beast-card[open] summary { background: #151747; }
 .beast-card summary::-webkit-details-marker { display: none; }
@@ -48,6 +65,7 @@
   pointer-events: none;
 }
 .beast-thumbnail img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.beast-aggression { padding: .55rem .8rem; color: var(--muted); font-size: .875rem; }
 .beast-danger {
   display: flex;
   align-items: center;
@@ -128,7 +146,17 @@
 .beast-description p:last-child { margin-bottom: 0; }
 .beast-description strong { color: #674727; }
 
-@media (max-width: 50rem) { .bestiary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 50rem) {
+  .beast-card summary {
+    grid-template-columns: minmax(0, 36%) minmax(0, 1fr);
+    grid-template-areas: 'portrait title' 'portrait aggression' 'portrait threat';
+    grid-template-rows: auto 1fr auto;
+  }
+  .beast-name { grid-area: title; }
+  .beast-thumbnail { grid-area: portrait; align-self: center; }
+  .beast-aggression { grid-area: aggression; align-self: center; }
+  .beast-danger { grid-area: threat; min-height: 2.8rem; }
+}
 @media (max-width: 38rem) {
   .beast-dossier-body { grid-template-columns: minmax(0, 1fr); padding: .65rem; }
   .beast-description { border-inline-start: 0; border-top: 1px solid var(--archive-rule); }
