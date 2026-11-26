@@ -170,10 +170,23 @@ html[data-theme="shard"] .world-hero {
 
 .timeline-event > summary::-webkit-details-marker { display: none; }
 
+.timeline-event-extended > summary::before {
+  content: '';
+  flex: 0 0 .85rem;
+  height: 1.05rem;
+  border: 1px solid var(--timeline-accent);
+  border-radius: 2px;
+  background:
+    linear-gradient(225deg, var(--timeline-accent) 50%, transparent 51%) right top / .28rem .28rem no-repeat,
+    linear-gradient(var(--timeline-accent), var(--timeline-accent)) center 54% / 55% 1px no-repeat,
+    linear-gradient(var(--timeline-accent), var(--timeline-accent)) center 74% / 55% 1px no-repeat;
+}
+
 .timeline-event > summary::after {
   content: '';
   flex: 0 0 .75rem;
   height: .75rem;
+  margin-inline-start: auto;
   background: linear-gradient(var(--timeline-accent), var(--timeline-accent)) center / 100% 1px no-repeat,
     linear-gradient(var(--timeline-accent), var(--timeline-accent)) center / 1px 100% no-repeat;
 }

@@ -41,7 +41,11 @@ for (const [era, events] of Object.entries(historyEvents)) {
     const copy = document.createElement('p');
     copy.textContent = description;
     card.append(heading, copy);
-    if (extraTemplate) card.append(document.getElementById(extraTemplate).content.cloneNode(true));
+    if (extraTemplate) {
+      card.classList.add('timeline-event-extended');
+      heading.setAttribute('aria-label', `${title}. Есть дополнительные материалы`);
+      card.append(document.getElementById(extraTemplate).content.cloneNode(true));
+    }
     cards.append(card);
   }
 }
