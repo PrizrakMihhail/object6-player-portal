@@ -1,5 +1,4 @@
 const grid = document.querySelector('.bestiary-grid');
-const menu = document.querySelector('.portal-header');
 let scrollRoom = 0;
 
 grid.addEventListener('click', event => {
@@ -41,12 +40,16 @@ grid.addEventListener('toggle', event => {
     return;
   }
 
-  const menuOffset = Math.ceil(menu.getBoundingClientRect().height) + 12;
-  const cardTop = card.getBoundingClientRect().top + window.scrollY;
-  const naturalScrollLimit = document.documentElement.scrollHeight - window.innerHeight - scrollRoom;
-  scrollRoom = Math.max(0, Math.ceil(cardTop - menuOffset - naturalScrollLimit));
+  const { top, bottom } = card.getBoundingClientRect();
+  const viewportHeight = window.innerHeight;
+  const fullyVisible = top >= 0 && bottom <= viewportHeight;
+  const targetScroll = fullyVisible ? window.scrollY : window.scrollY + top;
+  const naturalScrollLimit = document.documentElement.scrollHeight - viewportHeight - scrollRoom;
+  scrollRoom = Math.max(0, Math.ceil(targetScroll - naturalScrollLimit));
   grid.style.setProperty('--bestiary-scroll-room', `${scrollRoom}px`);
-  card.style.scrollMarginTop = `${menuOffset}px`;
+
+  if (fullyVisible) return;
+
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   card.scrollIntoView({ block: 'start', behavior: reducedMotion ? 'instant' : 'smooth' });
 }, true);
