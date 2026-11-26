@@ -1,0 +1,26 @@
+.olegus-terminal {
+  width: min(39rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  padding: clamp(.85rem, 3vw, 1.4rem);
+  border: 1px solid var(--cyan);
+  background: var(--bg);
+  color: var(--text);
+  box-shadow: 0 0 2rem #85bbff50;
+}
+.olegus-terminal::backdrop { background: #05041beb; }
+.olegus-terminal h2 { margin: 0 0 .8rem; color: var(--cyan); font: 500 1.55rem/1.2 var(--display); }
+.olegus-log {
+  height: min(17rem, 49dvh);
+  overflow: auto;
+  margin: 0 0 .85rem;
+  padding: .7rem;
+  border: 1px solid var(--line2);
+  background: var(--panel);
+  list-style: none;
+  font-size: .875rem;
+  overflow-wrap: anywhere;
+}
+.olegus-log li { margin-bottom: .45rem; }
+.olegus-log .command { color: var(--cyan); }
+.olegus-terminal-result { margin: 0 0 .85rem; color: var(--cyan); }
+.olegus-terminal-result:empty { display: none; }

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="shared/shard.css">
   <link rel="stylesheet" href="portal.css">
   <link rel="stylesheet" href="object-bestiary.css">
+  <link rel="stylesheet" href="shared/olegus-terminal.css">
   <script type="module" src="shared/network-signal.js"></script>
   <script type="module" src="object-bestiary.js"></script>
   <script type="module" src="bestiary-report.js"></script>
@@ -382,6 +383,14 @@
         </label>
         <div><button type="submit" class="portal-button primary">Отправить</button></div>
       </fieldset>
+    </form>
+  </dialog>
+  <dialog class="olegus-terminal" id="bestiary-report-terminal" aria-labelledby="bestiary-report-terminal-title">
+    <header><h2 id="bestiary-report-terminal-title" tabindex="-1" autofocus>Терминал связи с Олегусом</h2></header>
+    <ol class="olegus-log" role="log" aria-label="Журнал отправки"></ol>
+    <p class="olegus-terminal-result" id="bestiary-report-result" role="status"></p>
+    <form method="dialog" hidden>
+      <button class="portal-button" aria-describedby="bestiary-report-result">Закрыть</button>
     </form>
   </dialog>
 </body>
