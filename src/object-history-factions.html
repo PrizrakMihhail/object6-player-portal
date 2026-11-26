@@ -7,7 +7,9 @@
   <title>Бывшие фракции — История Объекта</title>
   <link rel="stylesheet" href="shared/shard.css">
   <link rel="stylesheet" href="portal.css">
+  <link rel="stylesheet" href="object-factions.css">
   <script type="module" src="shared/network-signal.js"></script>
+  <script type="module" src="object-factions.js"></script>
 </head>
 <body>
   <header class="portal-header">
@@ -22,9 +24,136 @@
     <header class="hero-row guide-hero">
       <h1 id="history-page-title">Бывшие фракции</h1>
     </header>
-    <article class="portal-panel content-panel" aria-labelledby="history-page-title">
-      <p>ФармаСерпентика какое-то время делила власть во Фрисити с Четвёртой Передачей, а позднее распалась. Жандармерия самораспустилась после ухода Барона и рейда на Узел.</p>
-    </article>
+    <section class="faction-grid" aria-labelledby="history-page-title">
+      <button class="faction-card portal-panel" type="button" data-faction="pharma" aria-haspopup="dialog">
+        <img src="assets/factions/pharma.webp" alt="" width="480" height="480">
+        <span class="faction-card-copy">
+          <strong>ФармаСерпентика</strong>
+          <span>Союзники и соперники Четвёртой Передачи</span>
+        </span>
+        <span class="faction-arrow" aria-hidden="true">↗</span>
+      </button>
+      <button class="faction-card portal-panel" type="button" data-faction="highlanders" aria-haspopup="dialog">
+        <img src="assets/factions/highlanders.webp" alt="" width="480" height="480">
+        <span class="faction-card-copy">
+          <strong>Шотландские горцы</strong>
+          <span>Отряд из Новой Шотландии</span>
+        </span>
+        <span class="faction-arrow" aria-hidden="true">↗</span>
+      </button>
+      <button class="faction-card portal-panel" type="button" data-faction="gendarmerie" aria-haspopup="dialog">
+        <img src="assets/factions/gendarmerie.webp" alt="" width="480" height="480">
+        <span class="faction-card-copy">
+          <strong>Жандармерия</strong>
+          <span>Служба порядка Фрисити</span>
+        </span>
+        <span class="faction-arrow" aria-hidden="true">↗</span>
+      </button>
+      <button class="faction-card portal-panel" type="button" data-faction="technovikings" aria-haspopup="dialog">
+        <img src="assets/factions/technovikings.webp" alt="" width="480" height="480">
+        <span class="faction-card-copy">
+          <strong>Отряд техновикингов</strong>
+          <span>Экипаж Пивожора</span>
+        </span>
+        <span class="faction-arrow" aria-hidden="true">↗</span>
+      </button>
+    </section>
+
+    <dialog class="faction-file" id="pharma" aria-labelledby="pharma-title">
+      <header class="faction-file-header">
+        <span>Личное дело</span>
+        <form method="dialog">
+          <button type="submit" autofocus>Закрыть</button>
+        </form>
+      </header>
+      <div class="faction-sheet">
+        <div class="faction-sheet-heading">
+          <img src="assets/factions/pharma.webp" alt="" width="480" height="480">
+          <div>
+            <h2 id="pharma-title">ФармаСерпентика</h2>
+            <dl>
+              <div><dt>Профиль</dt><dd>Союзники и соперники Четвёртой Передачи</dd></div>
+              <div><dt>Локация</dt><dd>Фрисити</dd></div>
+            </dl>
+          </div>
+        </div>
+        <h3>Архивная справка</h3>
+        <p>В хронике Барона столкновения с ФармаСерпентикой названы войной. Позже бывшие противники вместе пришли к власти во Фрисити. ФармаСерпентику в Узле представлял Майор.</p>
+        <p>После гибели Майора организация со временем распалась.</p>
+      </div>
+    </dialog>
+
+    <dialog class="faction-file" id="highlanders" aria-labelledby="highlanders-title">
+      <header class="faction-file-header">
+        <span>Личное дело</span>
+        <form method="dialog">
+          <button type="submit" autofocus>Закрыть</button>
+        </form>
+      </header>
+      <div class="faction-sheet">
+        <div class="faction-sheet-heading">
+          <img src="assets/factions/highlanders.webp" alt="" width="480" height="480">
+          <div>
+            <h2 id="highlanders-title">Шотландские горцы</h2>
+            <dl>
+              <div><dt>Профиль</dt><dd>Отряд из Новой Шотландии</dd></div>
+              <div><dt>Локация</dt><dd>Новая Шотландия, Фрисити</dd></div>
+            </dl>
+          </div>
+        </div>
+        <h3>Архивная справка</h3>
+        <p>Горцы считали себя потомками шотландских кланов. В их преданиях подвиги предков звучали как истории о бессмертных дуэлянтах, а серьёзность, с которой отряд их пересказывал, сама стала частью шутки.</p>
+        <p>В хронике Узла отмечено, что горцы получили базу, известную как Новая Шотландия, и исследовали заражённую зону.</p>
+      </div>
+    </dialog>
+
+    <dialog class="faction-file" id="gendarmerie" aria-labelledby="gendarmerie-title">
+      <header class="faction-file-header">
+        <span>Личное дело</span>
+        <form method="dialog">
+          <button type="submit" autofocus>Закрыть</button>
+        </form>
+      </header>
+      <div class="faction-sheet">
+        <div class="faction-sheet-heading">
+          <img src="assets/factions/gendarmerie.webp" alt="" width="480" height="480">
+          <div>
+            <h2 id="gendarmerie-title">Жандармерия</h2>
+            <dl>
+              <div><dt>Профиль</dt><dd>Служба порядка Фрисити</dd></div>
+              <div><dt>Локация</dt><dd>Фрисити</dd></div>
+            </dl>
+          </div>
+        </div>
+        <h3>Архивная справка</h3>
+        <p>Барон создал Жандармерию из жителей Узла с боевым опытом. Жандармы подчинялись главе Узла, патрулировали жилую часть Фрисити и пресекали контрабанду.</p>
+        <p>После рейда на Фрисити и ухода Барона Жандармерия самораспустилась.</p>
+      </div>
+    </dialog>
+
+    <dialog class="faction-file" id="technovikings" aria-labelledby="technovikings-title">
+      <header class="faction-file-header">
+        <span>Личное дело</span>
+        <form method="dialog">
+          <button type="submit" autofocus>Закрыть</button>
+        </form>
+      </header>
+      <div class="faction-sheet">
+        <div class="faction-sheet-heading">
+          <img src="assets/factions/technovikings.webp" alt="" width="480" height="480">
+          <div>
+            <h2 id="technovikings-title">Отряд техновикингов</h2>
+            <dl>
+              <div><dt>Профиль</dt><dd>Экипаж Пивожора</dd></div>
+              <div><dt>Локация</dt><dd>Побережье</dd></div>
+            </dl>
+          </div>
+        </div>
+        <h3>Архивная справка</h3>
+        <p>Экипаж Пивожора чтил Тора и Одина и рассказывал о Рагнарёке так, будто его пережили и люди, и боги.</p>
+        <p>По одному из преданий экипажа, уцелевшую турбину на побережье удалось запустить после того, как боги хитростью вернули украденный инструмент. Для техновикингов это была история о том, как поселения пережили зиму при свете.</p>
+      </div>
+    </dialog>
   </main>
 </body>
 </html>

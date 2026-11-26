@@ -1,0 +1,124 @@
+.faction-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.faction-card {
+  display: grid;
+  grid-template-columns: clamp(4.25rem, 10vw, 7rem) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(.65rem, 2vw, 1.25rem);
+  padding: clamp(.65rem, 2vw, 1rem);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform .2s ease, border-color .2s ease, background-color .2s ease;
+}
+
+.faction-card img,
+.faction-sheet img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.faction-card-copy { display: grid; gap: .4rem; }
+.faction-card-copy strong { font-size: clamp(1rem, 2vw, 1.35rem); }
+.faction-card-copy span { font-size: .9rem; }
+.faction-arrow { color: var(--cyan); }
+
+.faction-card:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .faction-card:hover {
+    position: relative;
+    z-index: 1;
+    border-color: var(--cyan);
+    background-color: var(--panel2);
+    transform: scale(1.05);
+  }
+}
+
+.faction-file {
+  box-sizing: border-box;
+  width: min(39rem, calc(100% - 1.5rem));
+  max-height: calc(100% - 1.5rem);
+  padding: 0 .65rem .65rem;
+  overflow: auto;
+  color: #32271d;
+  background: #d8bd90;
+  border: 1px solid #967246;
+  box-shadow: .35rem .4rem 0 #8d6a40, 0 1rem 3rem #0009;
+  color-scheme: light;
+}
+
+.faction-file::backdrop { background: #080717bf; }
+
+.faction-file-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  padding: .5rem 0;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.faction-file-header button {
+  min-height: 2.5rem;
+  padding: .25rem .65rem;
+  border: 1px solid #785a39;
+  background: #f0ddba;
+  color: #32271d;
+  cursor: pointer;
+}
+
+.faction-file-header button:hover { background: #fff3d8; }
+.faction-file-header button:focus-visible { outline: 2px solid #563421; }
+
+.faction-sheet {
+  padding: clamp(.8rem, 4vw, 1.75rem);
+  border: 1px solid #aa8b5e;
+  background: #f8eed8;
+  font: 1rem/1.55 Georgia, serif;
+}
+
+.faction-sheet-heading {
+  display: grid;
+  grid-template-columns: clamp(3.75rem, 18vw, 8rem) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(.6rem, 3vw, 1.25rem);
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #af9873;
+}
+
+.faction-sheet img { border: 1px solid #af9873; }
+.faction-sheet h2 {
+  margin: 0 0 .45rem;
+  font-size: clamp(1.15rem, 4vw, 1.8rem);
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.faction-sheet dl, .faction-sheet dd { margin: 0; }
+.faction-sheet dl div { margin-top: .35rem; }
+.faction-sheet dt { font-size: .82rem; font-weight: 700; }
+.faction-sheet h3 { margin: 1rem 0 .4rem; font-size: 1.05rem; }
+.faction-sheet p { margin: 0; }
+.faction-sheet p + p { margin-top: .65rem; }
+
+@media (max-width: 44rem) {
+  .faction-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faction-card { transition: none; }
+  .faction-card:hover { transform: none; }
+}
