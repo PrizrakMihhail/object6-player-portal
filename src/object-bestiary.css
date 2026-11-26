@@ -106,18 +106,21 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .beast-dossier {
+    --dossier-motion-duration: 340ms;
     transition:
-      opacity 240ms ease,
-      transform 240ms cubic-bezier(.2, .75, .25, 1),
-      display 240ms allow-discrete,
-      overlay 240ms allow-discrete;
+      opacity var(--dossier-motion-duration) ease,
+      transform var(--dossier-motion-duration) cubic-bezier(.2, .75, .25, 1),
+      display var(--dossier-motion-duration) allow-discrete,
+      overlay var(--dossier-motion-duration) allow-discrete;
   }
-  .beast-dossier::backdrop { transition: opacity 240ms ease, display 240ms allow-discrete; }
-  .beast-dossier:not([open]) { opacity: 0; transform: translateY(.65rem) scale(.985); }
+  .beast-dossier::backdrop {
+    transition: opacity var(--dossier-motion-duration) ease, display var(--dossier-motion-duration) allow-discrete;
+  }
+  .beast-dossier:not([open]) { opacity: 0; transform: translateY(.4rem); }
   .beast-dossier:not([open])::backdrop { opacity: 0; }
 
   @starting-style {
-    .beast-dossier[open] { opacity: 0; transform: translateY(.65rem) scale(.985); }
+    .beast-dossier[open] { opacity: 0; transform: translateY(.4rem); }
     .beast-dossier[open]::backdrop { opacity: 0; }
   }
 }

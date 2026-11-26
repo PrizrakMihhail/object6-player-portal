@@ -46,6 +46,22 @@ for (const [era, events] of Object.entries(historyEvents)) {
   }
 }
 
+document.addEventListener('toggle', event => {
+  const card = event.target;
+  if (!card.matches('details.timeline-event[open]') || !card.getClientRects().length) return;
+
+  const bounds = card.getBoundingClientRect();
+  const scale = Number(getComputedStyle(card).getPropertyValue('--timeline-event-scale'));
+  // Account for the full hover size even if its transition is still running.
+  const bottom = scale > 1 ? Math.max(bounds.bottom, bounds.top + card.offsetHeight * scale) : bounds.bottom;
+  const viewport = window.visualViewport;
+  const viewportBottom = viewport ? viewport.offsetTop + viewport.height : window.innerHeight;
+  if (bottom <= viewportBottom) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollBy({ top: Math.ceil(bottom - viewportBottom), behavior: reducedMotion ? 'instant' : 'smooth' });
+}, true);
+
 const map = document.querySelector('.timeline-map-view');
 const mapReport = document.getElementById('map-report');
 const reports = mapReport?.querySelectorAll('[data-report]');

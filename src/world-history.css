@@ -118,11 +118,27 @@ html[data-theme="shard"] .world-hero {
 .timeline > li:nth-child(odd) .timeline-events { grid-column: 1; }
 
 .timeline-event {
+  --timeline-event-scale: 1;
+  position: relative;
   min-width: 0;
   border: 1px solid var(--timeline-line);
   border-radius: .45rem;
   background: linear-gradient(130deg, var(--timeline-panel), var(--panel) 80%);
   box-shadow: 0 .35rem 1rem #05041b60;
+  transform-origin: top center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .timeline-event { transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .timeline-event:hover {
+    --timeline-event-scale: 1.05;
+    z-index: 1;
+    transform: scale(var(--timeline-event-scale));
+    box-shadow: 0 0 1.2rem var(--timeline-glow);
+  }
 }
 
 .timeline-events::before {
