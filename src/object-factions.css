@@ -51,47 +51,54 @@
 .faction-file {
   box-sizing: border-box;
   width: min(82rem, calc(100% - 1.5rem));
-  max-height: calc(100% - 1.5rem);
-  padding: 0 .65rem .65rem;
+  max-height: calc(100dvh - 1.5rem);
+  padding: 0;
   overflow: auto;
-  color: #32271d;
-  background: #d8bd90;
-  border: 1px solid #967246;
-  box-shadow: .35rem .4rem 0 #8d6a40, 0 1rem 3rem #0009;
-  color-scheme: light;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--line2);
+  box-shadow: 0 0 1.5rem #61a9ff36, 0 1rem 3rem #0009;
 }
 
 .faction-file::backdrop { background: #080717bf; }
 
 .faction-file-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: .5rem;
-  padding: .5rem 0;
+  gap: .75rem;
+  padding: .75rem clamp(.8rem, 4vw, 1.75rem);
+  border-bottom: 1px solid var(--line2);
+  background: var(--shard-grid), linear-gradient(105deg, #242065, var(--panel2));
+  background-size: 24px 24px, 24px 24px, auto;
+}
+
+.faction-file-header span {
+  color: var(--muted);
   font-size: .8rem;
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
 }
 
-.faction-file-header button {
-  min-height: 2.5rem;
-  padding: .25rem .65rem;
-  border: 1px solid #785a39;
-  background: #f0ddba;
-  color: #32271d;
-  cursor: pointer;
+.faction-file-header h2 {
+  margin: .2rem 0 0;
+  color: var(--cyan);
+  font-size: clamp(1.15rem, 4vw, 1.9rem);
+  line-height: 1.15;
+  text-shadow: 0 0 .65rem #72c9ff55;
+  overflow-wrap: anywhere;
 }
 
-.faction-file-header button:hover { background: #fff3d8; }
-.faction-file-header button:focus-visible { outline: 2px solid #563421; }
+.faction-file-header form { flex: none; }
+.faction-file-header button:focus-visible { outline: 2px solid var(--cyan); }
 
 .faction-sheet {
   padding: clamp(.8rem, 4vw, 1.75rem);
-  border: 1px solid #aa8b5e;
-  background: #f8eed8;
-  font: 1rem/1.55 Georgia, serif;
+  line-height: 1.55;
 }
 
 .faction-sheet-heading {
@@ -100,27 +107,26 @@
   align-items: start;
   gap: clamp(.6rem, 3vw, 1.25rem);
   padding-bottom: 1rem;
-  border-bottom: 1px solid #af9873;
+  border-bottom: 1px solid var(--line);
 }
 
 .faction-sheet img {
   max-width: 60rem;
   aspect-ratio: 3 / 2;
   object-fit: contain;
-  outline: 1px solid #af9873;
+  outline: 1px solid var(--line2);
   outline-offset: -1px;
 }
-.faction-sheet h2 {
-  margin: 0 0 .45rem;
-  font-size: clamp(1.15rem, 4vw, 1.8rem);
-  line-height: 1.15;
-  overflow-wrap: anywhere;
+.faction-sheet dl {
+  padding: .85rem 1rem;
+  border: 1px solid var(--line);
+  background: var(--panel2);
 }
 
 .faction-sheet dl, .faction-sheet dd { margin: 0; }
-.faction-sheet dl div { margin-top: .35rem; }
-.faction-sheet dt { font-size: .82rem; font-weight: 700; }
-.faction-sheet h3 { margin: 1rem 0 .4rem; font-size: 1.05rem; }
+.faction-sheet dl div + div { margin-top: .65rem; }
+.faction-sheet dt { color: var(--muted); font-size: .82rem; font-weight: 700; }
+.faction-sheet h3 { margin: 1rem 0 .4rem; color: var(--cyan); font-size: 1.05rem; }
 .faction-sheet p { margin: 0; }
 .faction-sheet p + p { margin-top: .65rem; }
 
