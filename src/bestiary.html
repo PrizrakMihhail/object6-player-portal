@@ -29,11 +29,13 @@
       <header class="section-head"><h2 id="bestiary-title">Монстры</h2></header>
       <p class="bestiary-credit">Из бестиария Европейской Пустоши. Составитель и иллюстратор — Семён фон Кройц, криптолог Зелёной Зоны Олегус.</p>
       <div class="bestiary-grid">
-        <details class="portal-panel beast-card">
+        <details class="portal-panel beast-card" data-danger="medium">
           <summary>
-            <img src="assets/bestiary/iron-worm-thumb.webp" alt="" width="360" height="360" loading="lazy">
             <span class="beast-name">Железный Червь</span>
-            <span class="beast-danger" data-danger="medium">Опасность: средняя</span>
+            <span class="beast-thumbnail">
+              <img src="assets/bestiary/iron-worm-thumb.webp" alt="" width="360" height="360" loading="lazy">
+            </span>
+            <span class="beast-danger">Опасность: средняя</span>
           </summary>
           <div class="beast-preview">
             <p><strong>Ареал обитания:</strong> Военные и складские базы</p>
@@ -41,11 +43,13 @@
             <button class="portal-button" type="button" data-dossier="beast-iron-worm" aria-haspopup="dialog" aria-label="Подробнее: Железный Червь">Подробнее</button>
           </div>
         </details>
-        <details class="portal-panel beast-card">
+        <details class="portal-panel beast-card" data-danger="high">
           <summary>
-            <img src="assets/bestiary/black-mutant-thumb.webp" alt="" width="360" height="360" loading="lazy">
             <span class="beast-name">Чёрный мутант</span>
-            <span class="beast-danger" data-danger="high">Опасность: высокая</span>
+            <span class="beast-thumbnail">
+              <img src="assets/bestiary/black-mutant-thumb.webp" alt="" width="360" height="360" loading="lazy">
+            </span>
+            <span class="beast-danger">Опасность: высокая</span>
           </summary>
           <div class="beast-preview">
             <p><strong>Ареал обитания:</strong> Закрытые комплексы, места, пораженные чёрным мором или чёрной гнилью.</p>
@@ -53,11 +57,13 @@
             <button class="portal-button" type="button" data-dossier="beast-black-mutant" aria-haspopup="dialog" aria-label="Подробнее: Чёрный мутант">Подробнее</button>
           </div>
         </details>
-        <details class="portal-panel beast-card">
+        <details class="portal-panel beast-card" data-danger="extreme">
           <summary>
-            <img src="assets/bestiary/mechanized-soldier-thumb.webp" alt="" width="360" height="360" loading="lazy">
             <span class="beast-name">Механизированный солдат</span>
-            <span class="beast-danger" data-danger="extreme">Опасность: крайне высокая</span>
+            <span class="beast-thumbnail">
+              <img src="assets/bestiary/mechanized-soldier-thumb.webp" alt="" width="360" height="360" loading="lazy">
+            </span>
+            <span class="beast-danger">Опасность: крайне высокая</span>
           </summary>
           <div class="beast-preview">
             <p><strong>Ареал обитания:</strong> Везде на территории Европейской Пустоши.</p>
@@ -65,11 +71,13 @@
             <button class="portal-button" type="button" data-dossier="beast-mechanized-soldier" aria-haspopup="dialog" aria-label="Подробнее: Механизированный солдат">Подробнее</button>
           </div>
         </details>
-        <details class="portal-panel beast-card">
+        <details class="portal-panel beast-card" data-danger="high">
           <summary>
-            <img src="assets/bestiary/demi-dog-thumb.webp" alt="" width="360" height="360" loading="lazy">
             <span class="beast-name">Дэми-пёс</span>
-            <span class="beast-danger" data-danger="high">Опасность: высокая</span>
+            <span class="beast-thumbnail">
+              <img src="assets/bestiary/demi-dog-thumb.webp" alt="" width="360" height="360" loading="lazy">
+            </span>
+            <span class="beast-danger">Опасность: высокая</span>
           </summary>
           <div class="beast-preview">
             <p><strong>Ареал обитания:</strong> Везде на территории Европейской Пустоши</p>
@@ -83,9 +91,12 @@
   <dialog class="beast-dossier" id="beast-iron-worm" aria-labelledby="title-iron-worm">
     <header class="beast-dossier-header"><h2 id="title-iron-worm">Железный Червь</h2><form method="dialog"><button class="portal-button" autofocus>Закрыть</button></form></header>
     <div class="beast-dossier-body">
-      <div class="beast-gallery">
-        <img src="assets/bestiary/iron-worm.webp" alt="Железный Червь" loading="lazy">
-      </div>
+      <figure class="beast-image-slot">
+        <figcaption>Иллюстрации</figcaption>
+        <div class="beast-gallery">
+          <img src="assets/bestiary/iron-worm.webp" alt="Железный Червь" loading="lazy">
+        </div>
+      </figure>
       <dl class="beast-facts">
         <dt>Также известен как</dt><dd>Колючка, Гребучая проволока</dd>
         <dt>Ареал обитания</dt><dd>Военные и складские базы</dd>
@@ -104,10 +115,13 @@
   <dialog class="beast-dossier" id="beast-black-mutant" aria-labelledby="title-black-mutant">
     <header class="beast-dossier-header"><h2 id="title-black-mutant">Чёрный мутант</h2><form method="dialog"><button class="portal-button" autofocus>Закрыть</button></form></header>
     <div class="beast-dossier-body">
-      <div class="beast-gallery">
-        <img src="assets/bestiary/black-mutant.webp" alt="Чёрный мутант" loading="lazy">
-        <img src="assets/bestiary/black-mutant-alt.webp" alt="Чёрный мутант, дополнительная иллюстрация" loading="lazy">
-      </div>
+      <figure class="beast-image-slot">
+        <figcaption>Иллюстрации</figcaption>
+        <div class="beast-gallery">
+          <img src="assets/bestiary/black-mutant.webp" alt="Чёрный мутант" loading="lazy">
+          <img src="assets/bestiary/black-mutant-alt.webp" alt="Чёрный мутант, дополнительная иллюстрация" loading="lazy">
+        </div>
+      </figure>
       <dl class="beast-facts">
         <dt>Также известен как</dt><dd>Сноркель, слон, мракобес.</dd>
         <dt>Ареал обитания</dt><dd>Закрытые комплексы, места, пораженные чёрным мором или чёрной гнилью.</dd>
@@ -127,9 +141,12 @@
   <dialog class="beast-dossier" id="beast-mechanized-soldier" aria-labelledby="title-mechanized-soldier">
     <header class="beast-dossier-header"><h2 id="title-mechanized-soldier">Механизированный солдат</h2><form method="dialog"><button class="portal-button" autofocus>Закрыть</button></form></header>
     <div class="beast-dossier-body">
-      <div class="beast-gallery">
-        <img src="assets/bestiary/mechanized-soldier.webp" alt="Механизированный солдат" loading="lazy">
-      </div>
+      <figure class="beast-image-slot">
+        <figcaption>Иллюстрации</figcaption>
+        <div class="beast-gallery">
+          <img src="assets/bestiary/mechanized-soldier.webp" alt="Механизированный солдат" loading="lazy">
+        </div>
+      </figure>
       <dl class="beast-facts">
         <dt>Также известен как</dt><dd>Киборг-убийца, железный воин.</dd>
         <dt>Ареал обитания</dt><dd>Везде на территории Европейской Пустоши.</dd>
@@ -152,10 +169,13 @@
   <dialog class="beast-dossier" id="beast-demi-dog" aria-labelledby="title-demi-dog">
     <header class="beast-dossier-header"><h2 id="title-demi-dog">Дэми-пёс</h2><form method="dialog"><button class="portal-button" autofocus>Закрыть</button></form></header>
     <div class="beast-dossier-body">
-      <div class="beast-gallery">
-        <img src="assets/bestiary/demi-dog.webp" alt="Дэми-пёс" loading="lazy">
-        <img src="assets/bestiary/demi-dog-alt.webp" alt="Дэми-пёс, дополнительная иллюстрация" loading="lazy">
-      </div>
+      <figure class="beast-image-slot">
+        <figcaption>Иллюстрации</figcaption>
+        <div class="beast-gallery">
+          <img src="assets/bestiary/demi-dog.webp" alt="Дэми-пёс" loading="lazy">
+          <img src="assets/bestiary/demi-dog-alt.webp" alt="Дэми-пёс, дополнительная иллюстрация" loading="lazy">
+        </div>
+      </figure>
       <dl class="beast-facts">
         <dt>Также известен как</dt><dd>Цербер, плохой мальчик, бобик.</dd>
         <dt>Ареал обитания</dt><dd>Везде на территории Европейской Пустоши</dd>
