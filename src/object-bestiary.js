@@ -1,3 +1,5 @@
+import { enableCarouselSwipe } from './shared/carousel-swipe.js';
+
 const grid = document.querySelector('.bestiary-grid');
 let scrollRoom = 0;
 
@@ -17,6 +19,8 @@ for (const gallery of document.querySelectorAll('.beast-image-slot')) {
     slides[current].hidden = false;
     count.textContent = `${current + 1} / ${slides.length}`;
   }
+
+  if (slides.length > 1) enableCarouselSwipe(gallery.querySelector('.beast-gallery'), move);
 
   gallery.addEventListener('click', event => {
     const button = event.target.closest('button[data-slide]');

@@ -1,3 +1,5 @@
+import { enableCarouselSwipe } from './shared/carousel-swipe.js';
+
 const grid = document.querySelector('.gallery-grid');
 const photos = [...grid.querySelectorAll('a')];
 const preview = document.querySelector('.gallery-preview');
@@ -27,6 +29,8 @@ function show(index) {
   position.textContent = `${current + 1} / ${photos.length}`;
   if (slideshow.getAttribute('aria-pressed') === 'true') setSlideshow(true);
 }
+
+enableCarouselSwipe(image, direction => show(current + direction));
 
 slideshow.addEventListener('click', () => setSlideshow(slideshow.getAttribute('aria-pressed') !== 'true'));
 

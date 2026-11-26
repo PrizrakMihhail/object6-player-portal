@@ -30,6 +30,8 @@
   background: var(--bg);
 }
 .gallery-preview figcaption { padding: .45rem 0 0; color: var(--muted); }
+.gallery-preview figure img { touch-action: pan-y pinch-zoom; user-select: none; cursor: grab; }
+.gallery-preview figure img:active { cursor: grabbing; }
 .gallery-controls button, .gallery-preview header button { min-width: 2.75rem; padding: 0; font-size: 1.45rem; }
 .gallery-controls [role="status"] { font-variant-numeric: tabular-nums; }
 .gallery-slideshow { display: flex; margin: .75rem auto 0; }
