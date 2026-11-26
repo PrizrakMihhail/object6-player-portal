@@ -1,0 +1,34 @@
+.object-gallery { margin-top: 2rem; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 9rem), 1fr));
+  gap: .75rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.gallery-grid a { display: block; border: 1px solid var(--line2); background: var(--panel); }
+.gallery-grid a:hover { border-color: var(--cyan); }
+.gallery-grid img { display: block; width: 100%; height: auto; }
+.gallery-preview {
+  width: min(64rem, calc(100% - 1.5rem));
+  max-height: calc(100dvh - 1.5rem);
+  padding: .75rem;
+  border: 1px solid var(--line2);
+  background: var(--panel);
+  color: var(--text);
+}
+.gallery-preview::backdrop { background: #05041beb; }
+.gallery-preview header, .gallery-controls { display: flex; justify-content: space-between; align-items: center; gap: .75rem; }
+.gallery-preview h2 { margin: 0; color: var(--cyan); }
+.gallery-preview figure { margin: .75rem 0; }
+.gallery-preview figure img {
+  display: block;
+  width: 100%;
+  height: min(62dvh, 36rem);
+  object-fit: contain;
+  background: var(--bg);
+}
+.gallery-preview figcaption { padding: .45rem 0 0; color: var(--muted); }
+.gallery-controls button, .gallery-preview header button { min-width: 2.75rem; padding: 0; font-size: 1.45rem; }
+.gallery-controls [role="status"] { font-variant-numeric: tabular-nums; }
